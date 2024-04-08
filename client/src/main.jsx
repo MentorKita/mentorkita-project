@@ -1,11 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import Dashboard from './pages/Dashboard'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <h1 className="font-poppins text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <Dashboard />
   </React.StrictMode>,
 )
