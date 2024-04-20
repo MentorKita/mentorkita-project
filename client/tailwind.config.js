@@ -20,7 +20,10 @@ export default {
         secondary: "#E5EFEF",
         tertiary: "#6D8DFF",
         textColor:"#575757",
-      }
+      },
+      boxShadow: {
+        cardShadow: "4px 4px 4px 0 rgba(0, 0, 0, 0.25)",
+      },
     },
   },
   plugins: [],
