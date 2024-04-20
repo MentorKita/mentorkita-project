@@ -7,12 +7,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Poppins', 'sans-serif'],
         poppins: ["Poppins", "sans-serif"],
         
       },
       screens: {
-        sm: "360px",
+        sm: "375px",
         md: "768px",
         lg: "1280px",
       },
@@ -20,6 +19,7 @@ export default {
         primary: "#01575C",
         secondary: "#E5EFEF",
         tertiary: "#6D8DFF",
+        textColor:"#575757",
       }
     },
   },
