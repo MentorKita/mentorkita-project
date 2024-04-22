@@ -20,7 +20,7 @@ function Navbar() {
             <li className="text-black text-base px-[40px] py-[30px] font-semibold mx-auto"><a href="#"> <img className="mt-7 mx-auto w-[90px] bg-gray-300 rounded-full" src="https://cdn1.iconfinder.com/data/icons/basic-ui-set-v5-user-outline/64/Account_profile_user_avatar_rounded-512.png" alt="" /></a></li>
             <li className="text-black text-base px-[25px] py-[10px] font-semibold"><Link to="/"> Dashboard </Link></li>
             {/* tambahkan link nya di to, sesuaikan dengan path yang sudah di atur di main.jsx */}
-            <li className="text-black text-base px-[25px] py-[10px] font-semibold"><Link to="#"> Search Mentors </Link></li>
+            <li className="text-black text-base px-[25px] py-[10px] font-semibold"><Link to="/searchMentor"> Search Mentors </Link></li>
             <li className="text-black text-base px-[25px] py-[10px] font-semibold"><Link to="#"> Be a Mentor </Link></li>
             <li className="text-[#01575C] text-base px-[25px] py-[10px] font-semibold"><Link to="#"> Be a Mentor </Link></li>
           </ul>
