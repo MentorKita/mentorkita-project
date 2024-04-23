@@ -50,7 +50,9 @@ const MentorDetail = () => {
         </header>
 
         {/* BUTTON CONTACT NOW */}
-        <GradientButton>Contact Now</GradientButton>
+        <section className="text-right mt-4 pr-6">
+          <GradientButton>Contact Now</GradientButton>
+        </section>
 
         {/* BAGIAN RATING LOKASI DAN SAVE */}
         <section className=" mt-8 px-6">
@@ -89,7 +91,10 @@ const MentorDetail = () => {
         </section>
 
         {/* SKILLS */}
-        <SkillsSection skills={mentor.skills} />
+        <section className="px-6">
+          <TitleH2 title="Skills" />
+          <SkillsSection skills={mentor.skills} />
+        </section>
 
         {/* ABOUT */}
         <section className="px-6 mt-10">

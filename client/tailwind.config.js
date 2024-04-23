@@ -16,8 +16,8 @@ export default {
         lg: "1280px",
       },
       colors: {
-        primary: "#01575C",
-        secondary: "#E5EFEF",
+        primary: "#081C87",
+        secondary: "#27B2DD",
         tertiary: "#6D8DFF",
         textColor:"#575757",
       },
