@@ -2,63 +2,16 @@
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Fragments/Navbar";
 import Footer from "../components/Fragments/Footer";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import TitleH2 from "../components/Elements/titleH2";
 import CardMentee from "../components/Fragments/CardMentee";
+import mentors from "../data/mentors";
+import menteesOverview from "../data/menteesOverview";
+import GradientButton from "../components/Elements/Button/gradienButton";
+import SkillsSection from "../components/Fragments/SkillsSection";
+import ExperienceSection from "../components/Fragments/ExperienceSection";
 
 const MentorDetail = () => {
-  // object mentors
-  const mentors = [
-    {
-      id: 1,
-      name: "Alex Freshman",
-      work: "Head of Phaselleus Vitae",
-      photo: "../../../images/photo-mentor-1.png",
-      linkedin: "https://www.linkedin.com/in/muhammad-abdanul-ikhlas/",
-      location: "United States of Majalengka",
-      rating: "5.0",
-      reviewers: 196,
-      skills: ["Enterpreneurship", "Marketing", "Advertising", "Branding"],
-      about:
-        "Alex Freshman is an exceptional mentor who brings a wealth of experience  and enthusiasm to the mentoring program. With a solid background in mention relevant field or industry, Alex demonstrates a genuine  passion for guiding and supporting mentees in their personal and  professional development.",
-      experiences: [
-        { year: 2019, desc: "Sunt nostrud amet sint do" },
-        { year: 2020, desc: "Exercitation veniam consequat" },
-        { year: 2021, desc: "Velit officia consequat duis" },
-      ],
-      mentees: [1, 2, 3],
-    },
-  ];
-
-  // object mentee overview
-  const menteesOverview = [
-    {
-      id: 1,
-      name: "Alex Jr.",
-      image: "../images/mentee-profile-1.png",
-      rating: 5.0,
-      comment:
-        "Saya telah menggunakan platform Mentor Kita selama beberapa bulan, dan  pengalaman saya sungguh luar biasa. Sebagai seorang profesional yang  ingin terus berkembang, saya mencari sumber pembelajaran yang tidak  hanya informatif tetapi juga interaktif. Mentor Kita memberikan lebih  dari yang saya harapkan.",
-    },
-    {
-      id: 2,
-      name: "David Jr.",
-      image: "../images/mentee-profile-2.png",
-      rating: 4.0,
-      comment:
-        "Saya telah menggunakan platform Mentor Kita selama beberapa bulan, dan  pengalaman saya sungguh luar biasa. Sebagai seorang profesional yang  ingin terus berkembang, saya mencari sumber pembelajaran yang tidak  hanya informatif tetapi juga interaktif. Mentor Kita memberikan lebih  dari yang saya harapkan.",
-    },
-    {
-      id: 3,
-      name: "Jesse Jr.",
-      image: "../images/mentee-profile-3.png",
-      rating: 1.0,
-      comment:
-        "Saya telah menggunakan platform Mentor Kita selama beberapa bulan, dan  pengalaman saya sungguh luar biasa. Sebagai seorang profesional yang  ingin terus berkembang, saya mencari sumber pembelajaran yang tidak  hanya informatif tetapi juga interaktif. Mentor Kita memberikan lebih  dari yang saya harapkan.",
-    },
-  ];
-
   let { id } = useParams();
   // Filter mentor based on ID
   const mentor = mentors.find((mentor) => mentor.id === parseInt(id));
@@ -97,21 +50,7 @@ const MentorDetail = () => {
         </header>
 
         {/* BUTTON CONTACT NOW */}
-        <section className="text-right mt-4 pr-6">
-          <a href="#" target="_blank">
-            <button
-              className="text-base p-1 py-[7px] rounded-[10px]"
-              style={{
-                backgroundImage: "linear-gradient(to right, #081C87, #27B2DD)",
-                borderImage: "linear-gradient(to right, #081C87, #27B2DD)",
-              }}
-            >
-              <span className="bg-white p-1 px-7 rounded-[8px] font-semibold text-[#081C87]">
-                Contact Now
-              </span>
-            </button>
-          </a>
-        </section>
+        <GradientButton>Contact Now</GradientButton>
 
         {/* BAGIAN RATING LOKASI DAN SAVE */}
         <section className=" mt-8 px-6">
@@ -150,19 +89,7 @@ const MentorDetail = () => {
         </section>
 
         {/* SKILLS */}
-        <section className="px-6">
-          <TitleH2 title="Skills" />
-          <div className="flex flex-wrap gap-2 mt-2">
-            {mentor.skills.map((skill, index) => (
-              <span
-                key={index}
-                className="px-3 py-1 text-xs font-medium bg-[#D4DBEC] text-textColor rounded-full"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </section>
+        <SkillsSection skills={mentor.skills} />
 
         {/* ABOUT */}
         <section className="px-6 mt-10">
@@ -173,41 +100,7 @@ const MentorDetail = () => {
         </section>
 
         {/* EXPERIENCE */}
-        <section className="mt-10 overflow-x-auto">
-          <div className="px-6">
-            <TitleH2 title="Experience" />
-          </div>
-          <section className="overflow-x-auto bg-[#ECF1FF]">
-            <div className="flex">
-              {mentor.experiences.map((experience, index) => (
-                <div
-                  key={index}
-                  className="w-[151px] flex-shrink-0 flex items-center
-                  odd:flex-col-reverse even:flex-col"
-                >
-                  {/* tahun */}
-                  <div className="flex flex-col justify-center items-center h-24 w-full">
-                    <span className="text-2xl font-bold text-[#3D5AF1]">
-                      {experience.year}
-                    </span>
-                  </div>
-                  {/* bulat yang biru */}
-                  <div className="flex items-center justify-center my-2">
-                    <div className="w-16 border border-blue-500"></div>
-                    <img src="../../../svg/point.svg" alt="" />
-                    <div className="w-16 border border-blue-500"></div>
-                  </div>
-                  {/* deskripsi pengalaman */}
-                  <div className="w-full h-24 flex flex-col items-center text-wrap justify-center ">
-                    <p className="text-sm text-center w-[90%] text-ellipsis overflow-hidden ...">
-                      {experience.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-        </section>
+        <ExperienceSection experiences={mentor.experiences} />
 
         {/* MENTEE OVERVIEW */}
         <section className="px-6 mt-12 mb-8">
@@ -223,6 +116,7 @@ const MentorDetail = () => {
         <Footer />
       </footer>
     </div>
+    // test koooo
   );
 };
 
