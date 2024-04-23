@@ -1,6 +1,7 @@
 import React from "react";
 import RatingBadge from "./RatingBadge";
 import DetailBtn from "../Elements/Button/detailBtn";
+import SkillsSection from "./SkillsSection";
 
 const CardMentor = ({ mentor }) => {
   return (
@@ -9,29 +10,20 @@ const CardMentor = ({ mentor }) => {
         <RatingBadge mentor={mentor} />
         <img
           loading="lazy"
-          src={mentor.image}
+          src={mentor.photo}
           alt={`${mentor.name} profile`}
           className="shrink-0 max-w-full aspect-square w-28"
         />
         <div className="flex flex-col">
           <div className="flex flex-col">
             <div className="text-base font-semibold">{mentor.name}</div>
-            <div className="text-xs font-normal">{mentor.title}</div>
+            <div className="text-xs font-normal">{mentor.work}</div>
           </div>
-          <div className="flex flex-wrap gap-1 mt-4 whitespace-nowrap text-zinc-600">
-            {mentor.skills.map((skill, index) => (
-              <div
-                key={index}
-                className="justify-center px-2 py-1 rounded-2xl bg-slate-300 text-[8px]"
-              >
-                {skill}
-              </div>
-            ))}
-          </div>
+          <SkillsSection skills={mentor.skills} />
         </div>
       </div>
       <div className="mt-3 text-justify text-black font-normal text-[8px] leading-3">
-        {mentor.description}
+        {mentor.about}
       </div>
       <DetailBtn />
     </div>

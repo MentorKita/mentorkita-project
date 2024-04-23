@@ -11,7 +11,7 @@ const RatingBadge = ({ mentor }) => {
       />
       <div className="text-[10x]">
         <span className="font-semibold">{mentor.rating}</span>
-        <span className="font-normal">{`(${mentor.reviewCount})`}</span>
+        <span className="font-normal">{`(${mentor.reviewers})`}</span>
       </div>
     </div>
   );
