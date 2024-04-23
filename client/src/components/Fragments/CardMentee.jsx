@@ -1,12 +1,7 @@
 import PropTypes from "prop-types";
 import StarRating from "../Elements/starRating";
-const CardMentee = ({ name, image, rating, comment }) => {
-  CardMentee.propTypes = {
-    name: PropTypes.string,
-    image: PropTypes.string,
-    rating: PropTypes.string,
-    comment: PropTypes.string,
-  };
+const CardMentee = ({ mentee }) => {
+  const { name, image, rating, comment, alumniCourse } = mentee;
 
   return (
     <main className="font-poppins mt-4 w-full  shadow-cardShadow pt-[20px] px-3 pb-1 rounded-lg ">
@@ -20,6 +15,8 @@ const CardMentee = ({ name, image, rating, comment }) => {
         </div>
         <div className="p-4 text-left">
           <p className="text-base font-bold">{name}</p>
+          {/* course yang di tampilkan di "course mentor" */}
+          <p className="text-[10px] font-normal mb-1">{alumniCourse}</p>
           {/* menampilkan bintang sebanyak rating */}
           <StarRating rating={rating} />
         </div>
@@ -29,6 +26,16 @@ const CardMentee = ({ name, image, rating, comment }) => {
       </section>
     </main>
   );
+};
+
+CardMentee.propTypes = {
+  mentee: PropTypes.shape({
+    name: PropTypes.string,
+    image: PropTypes.string,
+    rating: PropTypes.number,
+    comment: PropTypes.string,
+    alumniCourse: PropTypes.string,
+  }),
 };
 
 export default CardMentee;

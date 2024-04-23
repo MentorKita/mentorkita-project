@@ -6,7 +6,7 @@ import { useState } from "react";
 import TitleH2 from "../components/Elements/titleH2";
 import CardMentee from "../components/Fragments/CardMentee";
 import mentors from "../data/mentors";
-import menteesOverview from "../data/menteesOverview";
+import { mentees } from "../data/mentees";
 import GradientButton from "../components/Elements/Button/gradienButton";
 import SkillsSection from "../components/Fragments/SkillsSection";
 import ExperienceSection from "../components/Fragments/ExperienceSection";
@@ -110,10 +110,8 @@ const MentorDetail = () => {
         {/* MENTEE OVERVIEW */}
         <section className="px-6 mt-12 mb-8">
           <TitleH2 title="Mentee Overview" />
-          {menteesOverview.map((mentee) => (
-            <div key={mentee.id}>
-              <CardMentee {...mentee} />
-            </div>
+          {mentees.map((mentee) => (
+            <CardMentee key={mentee.id} mentee={mentee} />
           ))}
         </section>
       </main>
