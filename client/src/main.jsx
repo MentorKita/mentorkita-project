@@ -4,6 +4,7 @@ import Dashboard from './pages/Dashboard'
 import SearchMentor from './pages/SearchMentor'
 import MentorDetail from './pages/mentorDetail'
 import CourseMentor from './pages/CourseMentor'
+import CourseUser from './pages/CourseUser'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/courseMentor",
     element: <CourseMentor />,
+  },
+  {
+    path: "/courseUser",
+    element: <CourseUser />,
   },
 ]);
 
