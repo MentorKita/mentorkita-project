@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import StarRating from "../Elements/starRating";
 const CardMentee = ({ name, image, rating, comment }) => {
   CardMentee.propTypes = {
     name: PropTypes.string,
@@ -20,16 +21,7 @@ const CardMentee = ({ name, image, rating, comment }) => {
         <div className="p-4 text-left">
           <p className="text-base font-bold">{name}</p>
           {/* menampilkan bintang sebanyak rating */}
-          <div className="flex items-center">
-            {[...Array(parseInt(rating))].map((_, i) => (
-              <img
-                key={i}
-                src="../../../svg/yellow-star.svg"
-                alt="star"
-                className="w-4 h-4 mr-1"
-              />
-            ))}
-          </div>
+          <StarRating rating="4" />
         </div>
       </section>
       <section className="mt-3 text-xs italic pe-3">
