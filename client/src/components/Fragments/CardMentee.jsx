@@ -21,7 +21,7 @@ const CardMentee = ({ name, image, rating, comment }) => {
         <div className="p-4 text-left">
           <p className="text-base font-bold">{name}</p>
           {/* menampilkan bintang sebanyak rating */}
-          <StarRating rating="4" />
+          <StarRating rating={rating} />
         </div>
       </section>
       <section className="mt-3 text-xs italic pe-3">
