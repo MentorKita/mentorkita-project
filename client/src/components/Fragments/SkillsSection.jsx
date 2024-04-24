@@ -1,4 +1,4 @@
-import TitleH2 from "../Elements/titleH2";
+import React from "react";
 import PropTypes from "prop-types";
 
 const SkillsSection = ({ skills }) => {
