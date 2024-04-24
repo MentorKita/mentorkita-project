@@ -15,7 +15,9 @@ const TextareaForm = ({ type, label, placeholder, name, requiredStatus }) => {
       >
         {label}
       </label>
-      <input
+      <textarea
+        rows="3"
+        cols="3"
         type={type}
         name={name}
         id={name}
@@ -24,7 +26,7 @@ const TextareaForm = ({ type, label, placeholder, name, requiredStatus }) => {
         required={statusRequired}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-      />
+      ></textarea>
     </div>
   );
 };
