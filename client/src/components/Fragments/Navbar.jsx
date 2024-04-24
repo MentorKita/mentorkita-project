@@ -21,7 +21,7 @@ function Navbar() {
             <li className="text-black text-base px-[25px] py-[10px] font-semibold"><Link to="/"> Dashboard </Link></li>
             {/* tambahkan link nya di to, sesuaikan dengan path yang sudah di atur di main.jsx */}
             <li className="text-black text-base px-[25px] py-[10px] font-semibold"><Link to="/searchMentor"> Search Mentors </Link></li>
-            <li className="text-black text-base px-[25px] py-[10px] font-semibold"><Link to="#"> Be a Mentor </Link></li>
+            <li className="text-black text-base px-[25px] py-[10px] font-semibold"><Link to="/becomeAMentor"> Be a Mentor </Link></li>
             <li className="text-[#01575C] text-base px-[25px] py-[10px] font-semibold"><Link to="#"> Be a Mentor </Link></li>
           </ul>
         </nav>

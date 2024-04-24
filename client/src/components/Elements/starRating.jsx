@@ -1,9 +1,6 @@
 import PropTypes from "prop-types";
 
 const StarRating = ({ rating }) => {
-  StarRating.propTypes = {
-    rating: PropTypes.number,
-  };
   // Membuat array dengan panjang sesuai rating
   const starArray = [...Array(parseInt(rating))];
 
@@ -20,6 +17,10 @@ const StarRating = ({ rating }) => {
       ))}
     </div>
   );
+};
+
+StarRating.propTypes = {
+  rating: PropTypes.number,
 };
 
 export default StarRating;

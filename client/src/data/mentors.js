@@ -3,7 +3,7 @@ const mentors = [
     id: 1,
     name: "Alex Freshman",
     work: "Head of Phaselleus Vitae",
-    photo: "../../../images/photo-mentor-1.png",
+    photo: "../../../images/mentor-photo-1.png",
     email: "miccch@gmail.com",
     phone: "+62 49652845732",
     linkedin: "https://www.linkedin.com/in/muhammad-abdanul-ikhlas/",
@@ -19,6 +19,8 @@ const mentors = [
       { year: 2021, desc: "Velit officia consequat duis" },
     ],
     mentees: [1, 2, 3],
+    course: "Web Development Course",
+    status: "Review",
   },
   {
     id: 2,
@@ -32,6 +34,8 @@ const mentors = [
     skills: ["Enterpreneurship", "Marketing", "Branding", "Advertising"],
     about:
       "Alex Freshman is an exceptional mentor who brings a wealth of experience and enthusiasm to the mentoring program. With a solid background in mention relevant field or industry, Alex demonstrates a genuine passion for guiding and supporting mentees in their personal and professional development.",
+    course: "Web Development Course",
+    status: "not my mentor", //bukan mentor saya
   },
   {
     id: 3,
@@ -45,6 +49,8 @@ const mentors = [
     skills: ["Enterpreneurship", "Marketing", "Branding", "Advertising"],
     about:
       "Alex Freshman is an exceptional mentor who brings a wealth of experience and enthusiasm to the mentoring program. With a solid background in mention relevant field or industry, Alex demonstrates a genuine passion for guiding and supporting mentees in their personal and professional development.",
+    course: "Web Development Course",
+    status: "not my mentor", //bukan mentor saya
   },
   {
     id: 4,
@@ -58,6 +64,8 @@ const mentors = [
     skills: ["Enterpreneurship", "Marketing", "Branding", "Advertising"],
     about:
       "Alex Freshman is an exceptional mentor who brings a wealth of experience and enthusiasm to the mentoring program. With a solid background in mention relevant field or industry, Alex demonstrates a genuine passion for guiding and supporting mentees in their personal and professional development.",
+    course: "Web Development Course",
+    status: "not my mentor",
   },
   {
     id: 5,
@@ -71,7 +79,10 @@ const mentors = [
     skills: ["Enterpreneurship", "Marketing", "Branding", "Advertising"],
     about:
       "Alex Freshman is an exceptional mentor who brings a wealth of experience and enthusiasm to the mentoring program. With a solid background in mention relevant field or industry, Alex demonstrates a genuine passion for guiding and supporting mentees in their personal and professional development.",
+    course: "Web Development Course",
+    status: "Done",
   },
 ];
+
 
 export default mentors;

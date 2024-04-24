@@ -2,9 +2,6 @@ import PropTypes from "prop-types";
 import TitleH2 from "../Elements/titleH2";
 
 const ExperienceSection = ({ experiences }) => {
-  ExperienceSection.propTypes = {
-    experiences: PropTypes.array,
-  };
   return (
     <section className="mt-10 overflow-x-auto">
       <div className="px-6">
@@ -42,6 +39,10 @@ const ExperienceSection = ({ experiences }) => {
       </section>
     </section>
   );
+};
+
+ExperienceSection.propTypes = {
+  experiences: PropTypes.array,
 };
 
 export default ExperienceSection;

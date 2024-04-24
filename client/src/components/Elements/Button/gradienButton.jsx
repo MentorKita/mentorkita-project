@@ -1,9 +1,7 @@
 import PropTypes from "prop-types";
 
 const GradientButton = ({ children }) => {
-  GradientButton.propTypes = {
-    children: PropTypes.string,
-  };
+  
   return (
     <a href="#" target="_blank">
       <button
@@ -22,6 +20,10 @@ const GradientButton = ({ children }) => {
       </button>
     </a>
   );
+};
+
+GradientButton.propTypes = {
+  children: PropTypes.string,
 };
 
 export default GradientButton;
