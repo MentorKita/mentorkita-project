@@ -1,6 +1,12 @@
-
 import InputForm from "../Elements/Input/inputForm";
-// import { useState } from "react";
+import TextareaForm from "../Elements/Input/textareaForm";
+import CheckBoxForm from "../Elements/Input/checkboxForm";
+import Accordion from "./Accordion";
+import DisplaySkills from "./DisplaySkills";
+import skills from "../../data/skills";
+import { useState } from "react";
+import courses from "../../data/courses";
+import DarkBlueButton from "../Elements/Button/darkBlueButton";
 // import { konsultasi } from "../../services/konsultasi.service";
 
 const FormRegisterMentor = () => {
@@ -22,10 +28,37 @@ const FormRegisterMentor = () => {
   //     });
   //   };
 
+  // State untuk menyimpan skill yang dipilih
+  const [selectedSkills, setSelectedSkills] = useState([]);
+
+  // controller skills
+  const handleSkillChange = (event) => {
+    const skillValue = event.target.value;
+    if (event.target.checked) {
+      setSelectedSkills([...selectedSkills, skillValue]);
+    } else {
+      setSelectedSkills(selectedSkills.filter((skill) => skill !== skillValue));
+    }
+  };
+
+  // State untuk menyimpan Course yang dipilih
+  const [selectedCourses, setSelectedCourses] = useState([]);
+
+  // controller Courses
+  const handleCourseChange = (event) => {
+    const courseValue = event.target.value;
+    if (event.target.checked) {
+      setSelectedCourses([...selectedCourses, courseValue]);
+    } else {
+      setSelectedCourses(selectedCourses.filter((course) => course !== courseValue));
+    }
+  };
+
   return (
     // <form onSubmit={handleAddQuestion}>
-    <form onSubmit="">
-      <div className="mb-8">
+    <form onSubmit="" className="font-poppins">
+      {/* Nama */}
+      <section className="mb-8">
         <InputForm
           type="text"
           label="Name"
@@ -33,46 +66,115 @@ const FormRegisterMentor = () => {
           name="name"
           requiredStatus={true}
         />
-      </div>
-      <div className="mb-8">
+      </section>
+      {/* no telepon */}
+      <section className="mb-8">
         <InputForm
           type="tel"
           label="Phone"
           placeholder="e.g. 0822xxxxxxxx"
-          name="name"
+          name="phone"
           requiredStatus={true}
         />
-      </div>
-      <div className="mb-8">
+      </section>
+      {/* email */}
+      <section className="mb-8">
         <InputForm
           type="email"
           label="Email"
           placeholder="e.g. example@gmail.com"
-          name="name"
+          name="email"
           requiredStatus={true}
         />
-      </div>
-      <div className="mb-8">
+      </section>
+      {/* job */}
+      <section className="mb-8">
         <InputForm
           type="text"
           label="Job"
           placeholder="Your Job"
-          name="name"
+          name="job"
           requiredStatus={true}
         />
-      </div>
-      <div className="mb-8">
+      </section>
+      {/* location */}
+      <section className="mb-8">
         <InputForm
           type="text"
           label="Location"
           placeholder="Your Location"
-          name="name"
+          name="location"
           requiredStatus={true}
         />
-      </div>
-      {/* <Button type="submit" classname="p-2 mt-6 w-full bg-primary rounded-full">
-        Kirim
-      </Button> */}
+      </section>
+      {/* choose skills */}
+      <section className="mb-8">
+        {/* memanggil dropdown skills */}
+        <Accordion
+          title={"Choose Skill"}
+          content={
+            <div className="my-2 pl-1 pr-4">
+              <div className="bg-gray-200 py-2 px-4 rounded-lg">
+                {skills.map((skill) => (
+                  <CheckBoxForm
+                    key={skill.value}
+                    object={skill}
+                    handleObjectChange={handleSkillChange}
+                    selectedObject={selectedSkills}
+                  />
+                ))}
+              </div>
+            </div>
+          }
+        />
+        <DisplaySkills
+          skills={selectedSkills.map((value) => ({ value, label: value }))}
+        />
+      </section>
+      {/* Add Course */}
+      <section className="mb-8">
+        {/* memanggil dropdown course */}
+        <Accordion
+          title={"Add Course"}
+          content={
+            <div className="my-2 pl-1 pr-4">
+              <div className="py-2 px-4 rounded-lg">
+                {courses.map((course) => (
+                  <CheckBoxForm
+                    key={course}
+                    object={course}
+                    handleObjectChange={handleCourseChange}
+                    selectedObject={selectedCourses}
+                  />
+                ))}
+              </div>
+            </div>
+          }
+        />
+      </section>
+      {/* experience */}
+      <section className="mb-10">
+        <TextareaForm
+          type="text"
+          label="Experience"
+          placeholder="Tell us about your experience"
+          name="experience"
+          requiredStatus={true}
+        />
+      </section>
+      <section className="mb-8">
+        <TextareaForm
+          type="text"
+          label="About"
+          placeholder="Tell us about yourself"
+          name="about"
+          requiredStatus={true}
+        />
+      </section>
+      {/* NOTE : nanti selanjutnya bisa di tambahkan handle on click untuk submit */}
+      <DarkBlueButton type="submit" customClass="py-3 px-2 w-full">
+        Register
+      </DarkBlueButton>
     </form>
   );
 };
