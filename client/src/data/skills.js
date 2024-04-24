@@ -1,12 +1,12 @@
 const skills = [
-  { value: "advertising", label: "Advertising" },
-  { value: "branding", label: "Branding" },
-  { value: "backend", label: "Back-End Developing" },
-  { value: "entrepreneurship", label: "Entrepreneurship" },
-  { value: "frontend", label: "Front-End Developing" },
-  { value: "marketing", label: "Marketing" },
-  { value: "project-managering", label: "Project Managering" },
-  { value: "ux-design", label: "UX Design" },
+  { value: "Advertising", label: "Advertising" },
+  { value: "Branding", label: "Branding" },
+  { value: "Back-End Developer", label: "Backend Developer" },
+  { value: "Entrepreneurship", label: "Entrepreneurship" },
+  { value: "Frontend Developer", label: "Frontend Developer" },
+  { value: "Marketing", label: "Marketing" },
+  { value: "Project Manager", label: "Project Manager" },
+  { value: "UX-Design", label: "UX Design" },
 ];
 
 export default skills;
