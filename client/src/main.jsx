@@ -5,6 +5,7 @@ import SearchMentor from './pages/SearchMentor'
 import MentorDetail from './pages/mentorDetail'
 import CourseMentor from './pages/CourseMentor'
 import CourseUser from './pages/CourseUser'
+import BecomeAMentor from './pages/BecomeAMentor'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "/courseUser",
     element: <CourseUser />,
+  },
+  {
+    path: "/BecomeAMentor",
+    element: <BecomeAMentor />,
   },
 ]);
 
