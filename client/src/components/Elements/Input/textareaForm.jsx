@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-const InputForm = ({ type, label, placeholder, name, requiredStatus }) => {
+const TextareaForm = ({ type, label, placeholder, name, requiredStatus }) => {
   const [isFocused, setIsFocused] = useState(false);
   const statusRequired = requiredStatus ? "required" : "";
 
@@ -29,7 +29,7 @@ const InputForm = ({ type, label, placeholder, name, requiredStatus }) => {
   );
 };
 
-InputForm.propTypes = {
+TextareaForm.propTypes = {
   type: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
@@ -37,4 +37,4 @@ InputForm.propTypes = {
   requiredStatus: PropTypes.bool,
 };
 
-export default InputForm;
+export default TextareaForm;
