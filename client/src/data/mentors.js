@@ -4,6 +4,8 @@ const mentors = [
     name: "Alex Freshman",
     work: "Head of Phaselleus Vitae",
     photo: "../../../images/photo-mentor-1.png",
+    email: "miccch@gmail.com",
+    phone: "+62 49652845732",
     linkedin: "https://www.linkedin.com/in/muhammad-abdanul-ikhlas/",
     location: "United States of Majalengka",
     rating: "5.0",
