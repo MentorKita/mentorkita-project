@@ -6,6 +6,8 @@ import SearchBar from "../components/Fragments/SearchBar";
 import FilterMentor from "../components/Fragments/FilterMentor";
 import GradientButton from "../components/Elements/Button/gradienButton";
 import mentors from "../data/mentors";
+import RatingBadge from "../components/Fragments/RatingBadge";
+import RatingCheckbox from "../components/Fragments/RatingCheckbox";
 
 function SearchMentor() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -26,7 +28,9 @@ function SearchMentor() {
               className="shrink-0 my-auto aspect-square w-[33px]"
             />
           </button>
-          {isOpen && <FilterMentor />}
+          {isOpen && (
+              <FilterMentor addClass={"absolute mt-12"} addComp={<RatingCheckbox />} />
+          )}
           <SearchBar />
         </div>
         <div className="flex flex-col mt-3 w-full text-xs font-medium">

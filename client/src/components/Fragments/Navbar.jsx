@@ -17,7 +17,7 @@ function Navbar() {
       <div className={`${isOpen ? 'block' : 'hidden'} md:block w-[180px] h-[500px] bg-white ml-[145px] border-2 rounded-lg absolute z-20`} >
         <nav className="w-[180px] h-[170px]">
           <ul className="flex flex-col">
-            <li className="text-black text-base px-[40px] py-[30px] font-semibold mx-auto"><a href="#"> <img className="mt-7 mx-auto w-[90px] bg-gray-300 rounded-full" src="https://cdn1.iconfinder.com/data/icons/basic-ui-set-v5-user-outline/64/Account_profile_user_avatar_rounded-512.png" alt="" /></a></li>
+            <li className="text-black text-base px-[40px] py-[30px] font-semibold mx-auto"><a href="/profileMentor/1"> <img className="mt-7 mx-auto w-[90px] bg-gray-300 rounded-full" src="https://cdn1.iconfinder.com/data/icons/basic-ui-set-v5-user-outline/64/Account_profile_user_avatar_rounded-512.png" alt="" /></a></li>
             <li className="text-black text-base px-[25px] py-[10px] font-semibold"><Link to="/"> Dashboard </Link></li>
             {/* tambahkan link nya di to, sesuaikan dengan path yang sudah di atur di main.jsx */}
             <li className="text-black text-base px-[25px] py-[10px] font-semibold"><Link to="/searchMentor"> Search Mentors </Link></li>
