@@ -1,14 +1,7 @@
 import PropTypes from "prop-types";
 import StarRating from "../Elements/starRating";
 
-const CurrentCourseCard = ({ name, status, photo, rating, course }) => {
-  CurrentCourseCard.propTypes = {
-    name: PropTypes.string,
-    status: PropTypes.string,
-    photo: PropTypes.string,
-    rating: PropTypes.string,
-    course: PropTypes.string,
-  };
+const MyMentorCard = ({ name, status, photo, rating, course }) => {
 
   const ratingInNumber = Number(rating);
 
@@ -41,7 +34,7 @@ const CurrentCourseCard = ({ name, status, photo, rating, course }) => {
             className={`${
               status === "Done" ? "hover:bg-[#081C87]" : "hover:bg-[#27B2DD]"
             }
-            bg-[#081C87] text-white text-base font-bold w-36 py-2 text-center rounded-[10px]`}
+            bg-[#081C87] text-white text-base font-bold w-36 py-2 text-center rounded-[10px] duration-300`}
           >
             {status}
           </div>
@@ -51,4 +44,12 @@ const CurrentCourseCard = ({ name, status, photo, rating, course }) => {
   );
 };
 
-export default CurrentCourseCard;
+MyMentorCard.propTypes = {
+  name: PropTypes.string,
+  status: PropTypes.string,
+  photo: PropTypes.string,
+  rating: PropTypes.string,
+  course: PropTypes.string,
+};
+
+export default MyMentorCard;
