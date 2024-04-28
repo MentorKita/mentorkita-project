@@ -6,7 +6,6 @@ import SearchBar from "../components/Fragments/SearchBar";
 import FilterMentor from "../components/Fragments/FilterMentor";
 import GradientButton from "../components/Elements/Button/gradienButton";
 import mentors from "../data/mentors";
-import RatingBadge from "../components/Fragments/RatingBadge";
 import RatingCheckbox from "../components/Fragments/RatingCheckbox";
 
 function SearchMentor() {
@@ -20,7 +19,7 @@ function SearchMentor() {
       <Navbar />
       <main className="flex-grow bg-white px-6">
         <div className="flex gap-5 justify-between py-5 text-sm bg-white text-neutral-400">
-          <button onClick={toggleDropdown}>
+          <button type="button" onClick={toggleDropdown}>
             <img
               loading="lazy"
               src="../svg/filter-icon.svg"

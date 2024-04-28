@@ -6,7 +6,7 @@ const TextareaForm = ({ type, label, placeholder, name, requiredStatus }) => {
   const statusRequired = requiredStatus ? "required" : "";
 
   return (
-    <div className="mt-5 relative">
+    <div className="w-full mt-5 relative">
       <label
         htmlFor={name}
         className={`absolute -top-4 left-4 bg-white p-1 text-sm font-medium ${

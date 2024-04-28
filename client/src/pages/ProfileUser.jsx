@@ -1,26 +1,20 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import mentors from "../data/mentors";
-import { mentees } from "../data/mentees";
 import Navbar from "../components/Fragments/Navbar";
 import Footer from "../components/Fragments/Footer";
 import ProfileInfo from "../components/Fragments/ProfileInfo";
-import Accordion from "../components/Fragments/Accordion";
-import SkillsSection from "../components/Fragments/SkillsSection";
-import FilterMentor from "../components/Fragments/FilterMentor";
-import CourseCheckbox from "../components/Fragments/CourseCheckbox";
-import ExperienceList from "../components/Fragments/ExperienceList";
+import mentors from "../data/mentors";
 import LogoutBtn from "../components/Elements/Button/logoutBtn";
-import CurrentCourseCard from "../components/Fragments/CurrentCourseCard";
+import MyMentorCard from "../components/Fragments/MyMentorCard";
+import RatingBadge from "../components/Fragments/RatingBadge";
 import ProfileUserCard from "../components/Fragments/ProfileUserCard";
 
-function ProfileMentor() {
+const ProfileUser = () => {
   let { id } = useParams();
-  // Filter mentor based on ID
   const mentor = mentors.find((mentor) => mentor.id === parseInt(id));
 
   const [isOpen, setIsOpen] = React.useState(false);
-
+  
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -59,24 +53,6 @@ function ProfileMentor() {
                 layout={"row"}
               />
             </div>
-            <div className="flex flex-col gap-2 px-4 py-2 mt-3 text-xs rounded-md border border-solid border-gray-200">
-              <ProfileInfo label={"Job"} value={mentor.work} layout={"row"} />
-              <ProfileInfo
-                label={"Location"}
-                value={mentor.location}
-                layout={"row"}
-              />
-            </div>
-          </section>
-          <section>
-            <Accordion
-              title={"Edit Skill"}
-              content={<FilterMentor addClass={"mt-2"} />}
-            />
-            <SkillsSection skills={mentor.skills} />
-          </section>
-          <section>
-            <Accordion title={"Course List"} content={<CourseCheckbox />} />
           </section>
           <section className="flex flex-col gap-2 px-4 py-2 text-xs rounded-md border border-solid border-gray-200">
             <ProfileInfo
@@ -85,23 +61,30 @@ function ProfileMentor() {
               layout={"column"}
             />
           </section>
-          <section className="flex flex-col gap-2 px-4 py-2 text-xs rounded-md border border-solid border-gray-200">
-            <ProfileInfo
-              label={"Experience"}
-              value={<ExperienceList experiences={mentor.experiences} />}
-              layout={"column"}
-            />
-          </section>
           <LogoutBtn />
         </div>
         <div>
           <div className="flex justify-between mt-7 w-full font-medium">
-            <div className="text-base font-semibold">My Mentee</div>
-            <div className="text-sm text-sky-500">Show more</div>
+            <div className="text-base font-semibold">My Course</div>
+            <a
+              href="#"
+              className="text-sm text-sky-500 cursor-pointer hover:text-sky-300 transition-all"
+            >
+              Show more
+            </a>
           </div>
           <div className="w-full py-5">
-            {mentees.map((mentee) => (
-              <CurrentCourseCard key={mentee.id} {...mentee} />
+            {mentors.map((mentor) => (
+              <MyMentorCard
+                key={mentor.id}
+                {...mentor}
+                ratingBadge={
+                  <RatingBadge
+                    rating={mentor.rating}
+                    reviewers={mentor.reviewers}
+                  />
+                }
+              />
             ))}
           </div>
         </div>
@@ -109,6 +92,6 @@ function ProfileMentor() {
       <Footer />
     </div>
   );
-}
+};
 
-export default ProfileMentor;
+export default ProfileUser;

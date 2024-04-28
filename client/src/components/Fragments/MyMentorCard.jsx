@@ -1,9 +1,16 @@
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import StarRating from "../Elements/starRating";
+import MentorReview from "./MentorReview";
+import mentors from "../../data/mentors";
 
-const MyMentorCard = ({ name, status, photo, rating, course }) => {
-
+const MyMentorCard = ({ name, status, photo, rating, course, ratingBadge }) => {
   const ratingInNumber = Number(rating);
+  const [isReviewVisible, setIsReviewVisible] = useState(false);
+  
+  const toggleReviewVisibility = () => {
+    setIsReviewVisible(!isReviewVisible);
+  };
 
   return (
     <main
@@ -13,11 +20,12 @@ const MyMentorCard = ({ name, status, photo, rating, course }) => {
     >
       <section className="flex gap-6 py-2">
         {/* photo */}
-        <div className="flex items-center">
+        <div className="flex">
+          {ratingBadge}
           <img
             src={photo}
             alt={name}
-            className="rounded-[10px] w-[100px]  object-cover"
+            className="rounded-[10px] w-[100px] object-cover self-center"
           />
         </div>
         <div className="flex flex-col justify-center gap-1 text-left">
@@ -35,9 +43,16 @@ const MyMentorCard = ({ name, status, photo, rating, course }) => {
               status === "Done" ? "hover:bg-[#081C87]" : "hover:bg-[#27B2DD]"
             }
             bg-[#081C87] text-white text-base font-bold w-36 py-2 text-center rounded-[10px] duration-300`}
+            onClick={toggleReviewVisibility}
           >
             {status}
           </div>
+          {isReviewVisible && status === "Review" && (
+            <MentorReview
+              mentor={mentors.find((mentor) => mentor.status === "Review")}
+              onClose={() => setIsReviewVisible(false)}
+            />
+          )}
         </div>
       </section>
     </main>
