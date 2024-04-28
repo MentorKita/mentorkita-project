@@ -7,12 +7,12 @@ const CardMentor = ({ mentor }) => {
   return (
     <div className="flex flex-col flex-wrap justify-center content-center px-5 py-3 mt-7 w-full bg-white rounded-md shadow-xl">
       <div className="flex gap-5">
-        <RatingBadge mentor={mentor} />
+        <RatingBadge rating={mentor.rating} reviewers={mentor.reviewers} />
         <img
           loading="lazy"
           src={mentor.photo}
           alt={`${mentor.name} profile`}
-          className="shrink-0 max-w-full aspect-square w-28"
+          className="shrink-0 max-w-full aspect-square w-28 self-center"
         />
         <div className="flex flex-col">
           <div className="flex flex-col">
