@@ -14,7 +14,7 @@ function SearchBar() {
         <button
           type="submit"
           aria-label="Submit search"
-          className="absolute right-0 mr-10"
+          className="absolute right-0 mr-10 md:mr-32"
         >
           <img
             loading="lazy"

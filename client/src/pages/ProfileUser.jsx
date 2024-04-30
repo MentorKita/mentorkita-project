@@ -14,7 +14,7 @@ const ProfileUser = () => {
   const mentor = mentors.find((mentor) => mentor.id === parseInt(id));
 
   const [isOpen, setIsOpen] = React.useState(false);
-  
+
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -23,9 +23,9 @@ const ProfileUser = () => {
     <div className="flex flex-col font-poppins min-h-screen">
       <Navbar />
       <div className="w-full h-20 bg-gradient-to-r from-blue-900 to-sky-500"></div>
-      <main className="flex-grow bg-white px-6">
-        <div className="flex flex-col flex-wrap justify-center gap-4 px-8 py-4 -mt-12 w-full bg-white rounded-xl border border-gray-200 border-solid shadow-sm">
-          <div className="flex gap-5 justify-between self-center">
+      <main className="flex flex-col md:flex-row md:justify-between md:gap-12 bg-white px-6 md:px-20">
+        <div className="md:w-2/3 flex flex-col md:flex-row justify-center gap-4 px-8 py-4 -mt-12 bg-white rounded-xl border border-gray-200 border-solid shadow-sm">
+          <section className="md:w-1/6 flex md:flex-col gap-5 justify-between self-center">
             <img
               src="../../../images/photo-mentor-1.png"
               alt="Profile Photo"
@@ -38,8 +38,8 @@ const ProfileUser = () => {
               </button>
               {isOpen && <ProfileUserCard />}
             </div>
-          </div>
-          <section>
+          </section>
+          <section className="md:w-4/6 flex flex-col gap-3">
             <div className="flex flex-col gap-2 px-4 py-2 mt-3 text-xs rounded-md border border-solid border-gray-200">
               <ProfileInfo label={"Name"} value={mentor.name} layout={"row"} />
               <ProfileInfo
@@ -53,17 +53,17 @@ const ProfileUser = () => {
                 layout={"row"}
               />
             </div>
+            <div className="flex flex-col gap-2 px-4 py-2 text-xs rounded-md border border-solid border-gray-200">
+              <ProfileInfo
+                label={"About Me"}
+                value={mentor.about}
+                layout={"column"}
+              />
+            </div>
+            <LogoutBtn />
           </section>
-          <section className="flex flex-col gap-2 px-4 py-2 text-xs rounded-md border border-solid border-gray-200">
-            <ProfileInfo
-              label={"About Me"}
-              value={mentor.about}
-              layout={"column"}
-            />
-          </section>
-          <LogoutBtn />
         </div>
-        <div>
+        <section className="md:w-1/3">
           <div className="flex justify-between mt-7 w-full font-medium">
             <div className="text-base font-semibold">My Course</div>
             <a
@@ -87,7 +87,7 @@ const ProfileUser = () => {
               />
             ))}
           </div>
-        </div>
+        </section>
       </main>
       <Footer />
     </div>
