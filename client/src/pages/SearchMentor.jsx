@@ -15,9 +15,12 @@ function SearchMentor() {
   };
 
   return (
-    <div className="flex flex-col font-poppins min-h-screen">
-      <Navbar />
-      <main className="flex-grow bg-white px-6">
+    <div >
+      
+     
+            <Navbar />
+      <main className="flex flex-col font-poppins min-h-screen relative ">
+      <div className="flex-grow bg-white px-6">
         <div className="flex gap-5 justify-between py-5 text-sm bg-white text-neutral-400">
           <button type="button" onClick={toggleDropdown}>
             <img
@@ -43,6 +46,7 @@ function SearchMentor() {
             <GradientButton>Show More</GradientButton>
           </div>
         </div>
+      </div>
       </main>
       <footer>
         <Footer />

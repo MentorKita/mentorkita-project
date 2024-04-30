@@ -10,6 +10,8 @@ import CourseUser from "./pages/CourseUser";
 import BecomeAMentor from "./pages/BecomeAMentor";
 import ProfileMentor from "./pages/ProfileMentor";
 import ProfileUser from "./pages/ProfileUser";
+import LoginUser from "./pages/LoginUser"
+import RegisterUser from "./pages/RegisterUser"
 
 const router = createBrowserRouter([
   {
@@ -43,6 +45,14 @@ const router = createBrowserRouter([
   {
     path: "/profileUser/:id",
     element: <ProfileUser />,
+  },
+  {
+    path: "/loginUser",
+    element: <LoginUser />,
+  },
+  {
+    path: "/registerUser",
+    element: <RegisterUser />,
   },
 ]);
 
