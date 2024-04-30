@@ -15,8 +15,7 @@ function SearchMentor() {
   };
 
   return (
-    <div >
-      
+    <div >     
      
             <Navbar />
       <main className="flex flex-col font-poppins min-h-screen relative ">
@@ -35,7 +34,7 @@ function SearchMentor() {
           )}
           <SearchBar />
         </div>
-        <div className="flex flex-col mt-3 w-full text-xs font-medium">
+        <div className="flex flex-col items-center mt-3 w-full text-xs font-medium">
           <h2 className="self-start text-xl font-bold text-black">
             Recommended For You
           </h2>
