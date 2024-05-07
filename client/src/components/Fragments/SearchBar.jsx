@@ -3,7 +3,7 @@ import React from "react";
 function SearchBar() {
   return (
     <>
-      <form className="flex justify-between items-center w-full">
+      <form className="relative flex justify-between items-center w-full">
         <input
           type="text"
           id="search"
@@ -14,7 +14,7 @@ function SearchBar() {
         <button
           type="submit"
           aria-label="Submit search"
-          className="absolute right-0 mr-10 md:mr-32"
+          className="absolute right-0 mr-2 rounded-full p-2 hover:bg-gray-300 transition-all"
         >
           <img
             loading="lazy"

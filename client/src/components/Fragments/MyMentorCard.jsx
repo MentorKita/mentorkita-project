@@ -7,7 +7,7 @@ import mentors from "../../data/mentors";
 const MyMentorCard = ({ name, status, photo, rating, course, ratingBadge }) => {
   const ratingInNumber = Number(rating);
   const [isReviewVisible, setIsReviewVisible] = useState(false);
-  
+
   const toggleReviewVisibility = () => {
     setIsReviewVisible(!isReviewVisible);
   };
@@ -20,29 +20,31 @@ const MyMentorCard = ({ name, status, photo, rating, course, ratingBadge }) => {
     >
       <section className="flex gap-6 py-2">
         {/* photo */}
-        <div className="flex">
+        <div className="relative flex">
           {ratingBadge}
           <img
             src={photo}
             alt={name}
-            className="rounded-[10px] w-[100px] object-cover self-center"
+            className="rounded-[10px] w-[100px] object-cover self-center lg:w-[140px]"
           />
         </div>
         <div className="flex flex-col justify-center gap-1 text-left">
           {/* nama */}
-          <p className="text-base font-bold">{name}</p>
+          <p className="text-base font-bold lg:text-2xl">{name}</p>
           {/* course */}
-          <p className="text-[10px] font-normal mb-1">{course}</p>
+          <p className="text-[10px] font-normal mb-1 lg:text-lg">{course}</p>
           {/* Rating */}
-          <div className={` ${status === "Done" ? "block" : "hidden"} mb-2`}>
-            <StarRating rating={ratingInNumber} />
+          <div className="h-4 mb-2">
+            <div className={` ${status === "Done" ? "block" : "hidden"}`}>
+              <StarRating rating={ratingInNumber} />
+            </div>
           </div>
           {/* status */}
           <div
             className={`${
               status === "Done" ? "hover:bg-[#081C87]" : "hover:bg-[#27B2DD]"
             }
-            bg-[#081C87] text-white text-base font-bold w-36 py-2 text-center rounded-[10px] duration-300`}
+            bg-[#081C87] text-white text-base font-bold w-36 py-2 text-center rounded-[10px] duration-300 lg:px-28 lg:flex lg:justify-center`}
             onClick={toggleReviewVisibility}
           >
             {status}

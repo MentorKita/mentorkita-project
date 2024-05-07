@@ -6,7 +6,8 @@ const DisplaySkills = ({ skills }) => {
       {skills.map((skill, index) => (
         <span
           key={index}
-          className="px-2 py-1 text-[10px] font-medium bg-[#D4DBEC] text-textColor rounded-full"
+          className="px-2 py-1 text-[10px] font-medium bg-[#D4DBEC] text-textColor rounded-full
+          lg:text-sm"
         >
           {skill.label} {/* Mengakses properti label */}
         </span>
