@@ -26,7 +26,7 @@ const MentorDetail = () => {
     <div >
       <Navbar />
       <div className="flex flex-col font-poppins min-h-screen">
-      <main className="flex-grow bg-white">
+      <div className="flex-grow bg-white">
       <header className="w-full flex pl-5 pt-6 pb-1 bg-gradient-to-r from-[#081C87] to-[#27B2DD] md:h-36 lg:h-48">
         <section className="relative w-[45%] md:w-[75%] lg:w-[95%] ">
           <img
@@ -127,7 +127,13 @@ const MentorDetail = () => {
         </section>
 
         {/* EXPERIENCE */}
-        <ExperienceSection experiences={mentor.experiences} />
+        <section className="px-6 mt-10">
+          <TitleH2 title="Experiences" />
+          <p className="font-light text-xs pr-4 text-textColor md:pr-0 lg:text-base">
+            {mentor.experiences}
+          </p>
+        </section>
+        {/* <ExperienceSection experiences={mentor.experiences} /> */}
 
         {/* MENTEE OVERVIEW */}
         <section className="px-6 mt-12 mb-8 lg:flex lg:flex-col lg:items-center lg:mb-14">
@@ -145,6 +151,7 @@ const MentorDetail = () => {
           />
         </section> */}
       </main>
+      </div>
       </div>
       <footer>
         <Footer />
