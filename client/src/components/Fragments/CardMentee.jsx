@@ -4,7 +4,8 @@ const CardMentee = ({ mentee }) => {
   const { name, image, rating, comment, alumniCourse } = mentee;
 
   return (
-    <main className="font-poppins mt-4 w-full  shadow-cardShadow pt-[20px] px-3 pb-1 rounded-lg ">
+    <main className="font-poppins mt-4 w-full  shadow-cardShadow pt-[20px] px-3 pb-1 rounded-lg 
+    lg:w-[470px]">
       <section className="flex gap-4  ">
         <div className="w-[80px] h-[80px]">
           <img
@@ -21,7 +22,7 @@ const CardMentee = ({ mentee }) => {
           <StarRating rating={rating} />
         </div>
       </section>
-      <section className="mt-3 text-xs italic pe-3">
+      <section className="mt-3 text-xs italic pe-3 lg:pe-0">
         <p>{`"${comment}"`}</p>
       </section>
     </main>
