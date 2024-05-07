@@ -47,7 +47,11 @@ const MentorReview = ({ mentor, onClose }) => {
           </div>
           <div className="self-center">
             <button onClick={() => onClose()}>
-              <img src="../svg/exit.svg" alt="" className="hover:opacity-50 transition-all" />
+              <img
+                src="../svg/exit.svg"
+                alt=""
+                className="hover:opacity-50 transition-all"
+              />
             </button>
           </div>
         </div>
@@ -70,7 +74,10 @@ const MentorReview = ({ mentor, onClose }) => {
             </button>
           </form>
         ) : (
-          <SubmissionSuccess onClose={handleSubmissionSuccessClose} />
+          <SubmissionSuccess
+            onClose={handleSubmissionSuccessClose}
+            statusChecked={1}
+          />
         )}
       </div>
     </div>
