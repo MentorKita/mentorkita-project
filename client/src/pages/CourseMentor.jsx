@@ -7,8 +7,9 @@ import CardMentee from "../components/Fragments/CardMentee";
 
 const CourseMentor = () => {
   return (
-    <div className="flex flex-col font-poppins min-h-screen">
+    <div >
       <Navbar />
+      <div className="flex flex-col font-poppins min-h-screen">
       <div className="w-full h-[84px] flex pl-5 pt-6 pb-1 bg-gradient-to-r from-[#081C87] to-[#27B2DD] md:hidden"></div>
       <main className="relative z-10 flex-grow bg-white md:px-20 lg:flex lg:justify-start lg:gap-28">
         <section
@@ -48,6 +49,7 @@ const CourseMentor = () => {
       <footer>
         <Footer />
       </footer>
+    </div>
     </div>
   );
 };

@@ -48,8 +48,9 @@ const ProfileUser = () => {
   };
 
   return (
-    <div className="flex flex-col font-poppins min-h-screen">
+    <div >
       <Navbar />
+      <div className="flex flex-col font-poppins min-h-screen">
       <div className="w-full h-20 bg-gradient-to-r from-blue-900 to-sky-500"></div>
       <main className="px-6 md:px-20">
         <div className="flex flex-col md:flex-row md:justify-between md:gap-12 bg-white md:border md:border-gray-200 md:shadow-sm md:-mt-12 md:rounded-xl md:px-8">
@@ -174,6 +175,7 @@ const ProfileUser = () => {
         </div>
       </main>
       <Footer />
+    </div>
     </div>
   );
 };
