@@ -10,6 +10,7 @@ import { mentees } from "../data/mentees";
 import GradientButton from "../components/Elements/Button/gradienButton";
 import SkillsSection from "../components/Fragments/SkillsSection";
 import ExperienceSection from "../components/Fragments/ExperienceSection";
+import ContactCard from "../components/Fragments/ContactCard";
 
 const MentorDetail = () => {
   let { id } = useParams();
@@ -133,6 +134,14 @@ const MentorDetail = () => {
             <CardMentee key={mentee.id} mentee={mentee} />
           ))}
         </section>
+        {/* <section className="my-10">
+          <ContactCard
+            phone={mentor.phone}
+            location={mentor.location}
+            email={mentor.email}
+            courses={mentor.courses}
+          />
+        </section> */}
       </main>
       <footer>
         <Footer />
