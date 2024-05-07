@@ -13,7 +13,7 @@ const GradientButton = ({ children }) => {
       >
         <span
           className="bg-white p-1 px-7 rounded-[8px] font-semibold text-[#081C87]
-          hover:bg-transparent hover:text-white duration-300"
+          hover:bg-transparent hover:text-white duration-300 md:px-14 lg:text-lg lg:px-[85px]"
         >
           {children}
         </span>

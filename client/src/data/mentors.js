@@ -5,7 +5,7 @@ const mentors = [
     work: "Head of Phaselleus Vitae",
     photo: "../../../images/mentor-photo-1.png",
     email: "miccch@gmail.com",
-    phone: "+62 49652845732",
+    phone: "62822783647543",
     linkedin: "https://www.linkedin.com/in/muhammad-abdanul-ikhlas/",
     location: "United States of Majalengka",
     rating: "5.0",
@@ -18,6 +18,11 @@ const mentors = [
     mentees: [1, 2, 3],
     course: "Web Development Course",
     status: "Review",
+    courses: [
+      { value: "WebDevelopment", label: "Web Development" },
+      { value: "PythonDevelopment", label: "Python Development" },
+      { value: "Advertising", label: "Advertising" },
+    ],
   },
   {
     id: 2,

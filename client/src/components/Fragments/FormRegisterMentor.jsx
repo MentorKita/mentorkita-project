@@ -1,37 +1,26 @@
+import { useState } from "react";
 import InputForm from "../Elements/Input/inputForm";
 import TextareaForm from "../Elements/Input/textareaForm";
 import CheckBoxForm from "../Elements/Input/checkboxForm";
 import Accordion from "./Accordion";
 import DisplaySkills from "./DisplaySkills";
 import skills from "../../data/skills";
-import { useState } from "react";
 import courses from "../../data/courses";
 import DarkBlueButton from "../Elements/Button/darkBlueButton";
-// import { konsultasi } from "../../services/konsultasi.service";
 
 const FormRegisterMentor = () => {
-  // di pake pas udah sambung keBE
-  //   const [konsulFailed, setKonsulFailed] = useState("");
-  //   const handleAddQuestion = (event) => {
-  //     event.preventDefault();
-  //     const data = {
-  //       name: event.target.fullname.value,
-  //       email: event.target.email.value,
-  //       question: event.target.pertanyaan.value,
-  //     };
-  //     konsultasi(data, (status, res) => {
-  //       if (status) {
-  //         console.log(res);
-  //       } else {
-  //         setKonsulFailed(res.response.data);
-  //       }
-  //     });
-  //   };
-
-  // State untuk menyimpan skill yang dipilih
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [job, setJob] = useState("");
+  const [location, setLocation] = useState("");
+  const [experience, setExperience] = useState("");
+  const [about, setAbout] = useState("");
   const [selectedSkills, setSelectedSkills] = useState([]);
+  const [selectedCourses, setSelectedCourses] = useState([]);
+  const [emailError, setEmailError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
 
-  // controller skills
   const handleSkillChange = (event) => {
     const skillValue = event.target.value;
     if (event.target.checked) {
@@ -41,22 +30,67 @@ const FormRegisterMentor = () => {
     }
   };
 
-  // State untuk menyimpan Course yang dipilih
-  const [selectedCourses, setSelectedCourses] = useState([]);
-
-  // controller Courses
   const handleCourseChange = (event) => {
     const courseValue = event.target.value;
     if (event.target.checked) {
       setSelectedCourses([...selectedCourses, courseValue]);
     } else {
-      setSelectedCourses(selectedCourses.filter((course) => course !== courseValue));
+      setSelectedCourses(
+        selectedCourses.filter((course) => course !== courseValue)
+      );
+    }
+  };
+
+  const validateForm = () => {
+    let isValid = true;
+
+    // // Validate email
+    // if (!/^\S+@\S+\.\w{2,}$/.test(email)) {
+    //   setEmailError("");
+    // } else {
+    //   setEmailError("Masukkan email yang benar");
+    //   isValid = false;
+    // }
+
+    // // Validate phone number
+    // if (!/^\d{10,}$/.test(phone)) {
+    //   setPhoneError("Masukkan no hp yang benar");
+    //   isValid = false;
+    // } else {
+    //   setPhoneError("");
+    // }
+
+    return isValid;
+  };
+
+  // Handler untuk input telepon
+  const handlePhoneChange = (event) => {
+    const { value } = event.target;
+    setPhone(value); // Update state input telepon
+    validateForm(); // Panggil fungsi validasi secara real-time
+  };
+
+  // Handler untuk input email
+  const handleEmailChange = (event) => {
+    const { value } = event.target;
+    setEmail(value); // Update state input email
+    validateForm(); // Panggil fungsi validasi secara real-time
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    if (validateForm()) {
+      // Your form submission logic here
+      console.log("Form submitted!");
+      console.log("Phone:", phone);
+      console.log("Email:", email);
+      console.log("Selected Skills:", selectedSkills);
+      console.log("Selected Courses:", selectedCourses);
     }
   };
 
   return (
-    // <form onSubmit={handleAddQuestion}>
-    <form onSubmit="" className="font-poppins">
+    <form onSubmit={handleFormSubmit} className="font-poppins">
       {/* Nama */}
       <section className="mb-8">
         <InputForm
@@ -65,6 +99,7 @@ const FormRegisterMentor = () => {
           placeholder="Your Name"
           name="name"
           requiredStatus={true}
+          value={name}
         />
       </section>
       {/* no telepon */}
@@ -75,7 +110,10 @@ const FormRegisterMentor = () => {
           placeholder="e.g. 0822xxxxxxxx"
           name="phone"
           requiredStatus={true}
+          value={phone}
+          onChange={handlePhoneChange}
         />
+        {phoneError && <div className="text-red-500">{phoneError}</div>}
       </section>
       {/* email */}
       <section className="mb-8">
@@ -85,7 +123,10 @@ const FormRegisterMentor = () => {
           placeholder="e.g. example@gmail.com"
           name="email"
           requiredStatus={true}
+          value={email}
+          onChange={handleEmailChange}
         />
+        {emailError && <div className="text-red-500">{emailError}</div>}
       </section>
       {/* job */}
       <section className="mb-8">
@@ -95,6 +136,7 @@ const FormRegisterMentor = () => {
           placeholder="Your Job"
           name="job"
           requiredStatus={true}
+          value={job}
         />
       </section>
       {/* location */}
@@ -105,11 +147,11 @@ const FormRegisterMentor = () => {
           placeholder="Your Location"
           name="location"
           requiredStatus={true}
+          value={location}
         />
       </section>
       {/* choose skills */}
       <section className="mb-8">
-        {/* memanggil dropdown skills */}
         <Accordion
           title={"Choose Skill"}
           content={
@@ -133,7 +175,6 @@ const FormRegisterMentor = () => {
       </section>
       {/* Add Course */}
       <section className="mb-8">
-        {/* memanggil dropdown course */}
         <Accordion
           title={"Add Course"}
           content={
@@ -160,6 +201,7 @@ const FormRegisterMentor = () => {
           placeholder="Tell us about your experience"
           name="experience"
           requiredStatus={true}
+          value={experience}
         />
       </section>
       <section className="mb-8">
@@ -169,9 +211,9 @@ const FormRegisterMentor = () => {
           placeholder="Tell us about yourself"
           name="about"
           requiredStatus={true}
+          value={about}
         />
       </section>
-      {/* NOTE : nanti selanjutnya bisa di tambahkan handle on click untuk submit */}
       <DarkBlueButton type="submit" customClass="py-3 px-2 w-full">
         Register
       </DarkBlueButton>

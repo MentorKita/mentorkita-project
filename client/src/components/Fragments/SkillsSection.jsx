@@ -7,7 +7,8 @@ const SkillsSection = ({ skills }) => {
       {skills.map((skill, index) => (
         <span
           key={index}
-          className="px-2 py-1 text-[8px] font-medium bg-[#D4DBEC] text-textColor rounded-full"
+          className="px-2 py-1 text-[8px] font-medium bg-[#D4DBEC] text-textColor rounded-full
+          lg:text-base"
         >
           {skill}
         </span>

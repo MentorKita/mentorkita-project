@@ -1,7 +1,7 @@
-import React from "react";
 import SkyBlueBtn from "../Elements/Button/skyBlueBtn";
 
-const SubmissionSuccess = ({ onClose }) => {
+const SubmissionSuccess = ({ onClose, statusChecked }) => {
+
   const handleClose = (e) => {
     if (e.target.id === "wrapper2") onClose();
   };
@@ -22,9 +22,20 @@ const SubmissionSuccess = ({ onClose }) => {
           />
         </div>
         <div className="flex flex-col justify-center items-center gap-3 mt-8">
-          <div className="self-stretch text-center text-zinc-700 text-sm font-normal">
-            Submission Success!
-          </div>
+          {statusChecked === 1 ? (
+            <div className="self-stretch text-center text-zinc-700 text-sm font-normal">
+              Submission Success!
+            </div>
+          ) : statusChecked === 2 ? (
+            <>
+              <div className="self-stretch text-center text-zinc-700 text-sm font-normal">
+                Registration Success!
+              </div>
+              <div className="self-stretch text-center text-zinc-700 text-sm font-normal">
+                You are a mentor
+              </div>
+            </>
+          ) : null}
           <div onClick={() => onClose()}>
             <SkyBlueBtn />
           </div>
