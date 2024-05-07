@@ -5,7 +5,7 @@ const mentors = [
     work: "Head of Phaselleus Vitae",
     photo: "../../../images/mentor-photo-1.png",
     email: "miccch@gmail.com",
-    phone: "+62 49652845732",
+    phone: "62822783647543",
     linkedin: "https://www.linkedin.com/in/muhammad-abdanul-ikhlas/",
     location: "United States of Majalengka",
     rating: "5.0",
@@ -14,13 +14,23 @@ const mentors = [
     about:
       "Alex Freshman is an exceptional mentor who brings a wealth of experience  and enthusiasm to the mentoring program. With a solid background in mention relevant field or industry, Alex demonstrates a genuine  passion for guiding and supporting mentees in their personal and  professional development.",
     experiences: [
+      { year: 2017, desc: "Sunt nostrud amet sint do" },
+      { year: 2018, desc: "Sunt nostrud amet sint do" },
       { year: 2019, desc: "Sunt nostrud amet sint do" },
       { year: 2020, desc: "Exercitation veniam consequat" },
       { year: 2021, desc: "Velit officia consequat duis" },
+      { year: 2022, desc: "Velit officia consequat duis" },
+      { year: 2023, desc: "Velit officia consequat duis" },
+      { year: 2024, desc: "Velit officia consequat duis" },
     ],
     mentees: [1, 2, 3],
     course: "Web Development Course",
     status: "Review",
+    courses: [
+      { value: "WebDevelopment", label: "Web Development" },
+      { value: "PythonDevelopment", label: "Python Development" },
+      { value: "Advertising", label: "Advertising" },
+    ],
   },
   {
     id: 2,
@@ -83,6 +93,5 @@ const mentors = [
     status: "Done",
   },
 ];
-
 
 export default mentors;
