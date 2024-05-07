@@ -1,11 +1,6 @@
 import PropTypes from "prop-types";
 
 const CurrentCourseCard = ({ name, status, image }) => {
-  CurrentCourseCard.propTypes = {
-    name: PropTypes.string,
-    status: PropTypes.string,
-    image: PropTypes.string,
-  };
 
   return (
     <main className="font-poppins mb-4 w-full shadow-cardShadow py-[10px] px-5 rounded-lg bg-[#ECF1FF]">
@@ -31,6 +26,12 @@ const CurrentCourseCard = ({ name, status, image }) => {
       </section>
     </main>
   );
+};
+
+CurrentCourseCard.propTypes = {
+  name: PropTypes.string,
+  status: PropTypes.string,
+  image: PropTypes.string,
 };
 
 export default CurrentCourseCard;

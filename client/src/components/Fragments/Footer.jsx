@@ -16,7 +16,7 @@ const Footer = () => {
                 </section>
             </div>
             <div className="bg-blue-900 h-[45px]">
-                <p className="text-white text-[12px] text-center py-3">&copy; 2024 Developerd by Mentor Team</p>
+                <p className="text-white text-[12px] text-center py-3">&copy; 2024 Developed by Mentor Team</p>
             </div>
         </>
     )

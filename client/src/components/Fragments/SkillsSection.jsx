@@ -1,10 +1,7 @@
-import TitleH2 from "../Elements/titleH2";
+import React from "react";
 import PropTypes from "prop-types";
 
 const SkillsSection = ({ skills }) => {
-  SkillsSection.propTypes = {
-    skills: PropTypes.array,
-  };
   return (
     <div className="flex flex-wrap gap-2 mt-2">
       {skills.map((skill, index) => (
@@ -17,6 +14,10 @@ const SkillsSection = ({ skills }) => {
       ))}
     </div>
   );
+};
+
+SkillsSection.propTypes = {
+  skills: PropTypes.array,
 };
 
 export default SkillsSection;

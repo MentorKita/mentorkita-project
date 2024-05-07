@@ -30,7 +30,7 @@ const MentorDetail = () => {
             <img
               src={mentor.photo}
               alt={`${mentor.name} photo`}
-              className="absolute top-0 left-0"
+              className="absolute top-0 left-0 rounded-full border-4 border-white"
             />
           </section>
           <section className="w-full flex justify-between pr-1 pl-5">
