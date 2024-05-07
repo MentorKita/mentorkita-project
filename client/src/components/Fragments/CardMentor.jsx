@@ -8,7 +8,7 @@ const CardMentor = ({ mentor }) => {
   return (
     <div className="flex flex-col flex-wrap md:gap-2 justify-center content-center px-5 py-3 mt-7 max-w-3xl bg-white hover:bg-gray-50 transition-all rounded-md shadow-xl">
       <div className="flex gap-5">
-        <div className="md:hidden">
+        <div className="md:hidden relative">
           <RatingBadge rating={mentor.rating} reviewers={mentor.reviewers} />
         </div>
         <img

@@ -7,7 +7,7 @@ import mentors from "../../data/mentors";
 const MyMentorCard = ({ name, status, photo, rating, course, ratingBadge }) => {
   const ratingInNumber = Number(rating);
   const [isReviewVisible, setIsReviewVisible] = useState(false);
-  
+
   const toggleReviewVisibility = () => {
     setIsReviewVisible(!isReviewVisible);
   };
@@ -20,7 +20,7 @@ const MyMentorCard = ({ name, status, photo, rating, course, ratingBadge }) => {
     >
       <section className="flex gap-6 py-2">
         {/* photo */}
-        <div className="flex">
+        <div className="relative flex">
           {ratingBadge}
           <img
             src={photo}
@@ -34,8 +34,10 @@ const MyMentorCard = ({ name, status, photo, rating, course, ratingBadge }) => {
           {/* course */}
           <p className="text-[10px] font-normal mb-1 lg:text-lg">{course}</p>
           {/* Rating */}
-          <div className={` ${status === "Done" ? "block" : "hidden"} mb-2`}>
-            <StarRating rating={ratingInNumber} />
+          <div className="h-4 mb-2">
+            <div className={` ${status === "Done" ? "block" : "hidden"}`}>
+              <StarRating rating={ratingInNumber} />
+            </div>
           </div>
           {/* status */}
           <div
