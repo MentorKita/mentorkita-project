@@ -14,9 +14,14 @@ const mentors = [
     about:
       "Alex Freshman is an exceptional mentor who brings a wealth of experience  and enthusiasm to the mentoring program. With a solid background in mention relevant field or industry, Alex demonstrates a genuine  passion for guiding and supporting mentees in their personal and  professional development.",
     experiences: [
+      { year: 2017, desc: "Sunt nostrud amet sint do" },
+      { year: 2018, desc: "Sunt nostrud amet sint do" },
       { year: 2019, desc: "Sunt nostrud amet sint do" },
       { year: 2020, desc: "Exercitation veniam consequat" },
       { year: 2021, desc: "Velit officia consequat duis" },
+      { year: 2022, desc: "Velit officia consequat duis" },
+      { year: 2023, desc: "Velit officia consequat duis" },
+      { year: 2024, desc: "Velit officia consequat duis" },
     ],
     mentees: [1, 2, 3],
     course: "Web Development Course",
