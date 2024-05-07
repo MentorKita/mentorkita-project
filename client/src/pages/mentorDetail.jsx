@@ -23,7 +23,7 @@ const MentorDetail = () => {
 
   return (
     <div className="flex flex-col font-poppins min-h-screen">
-      {/* <Navbar /> */}
+      <Navbar />
       <header className="w-full flex pl-5 pt-6 pb-1 bg-gradient-to-r from-[#081C87] to-[#27B2DD] md:h-36 lg:h-48">
         <section className="relative w-[45%] md:w-[75%] lg:w-[95%] ">
           <img
