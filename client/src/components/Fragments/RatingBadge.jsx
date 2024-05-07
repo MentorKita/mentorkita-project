@@ -2,7 +2,7 @@ import React from "react";
 
 const RatingBadge = ({ rating, reviewers }) => {
   return (
-    <div className="flex absolute gap-1 justify-center items-center text-xs px-1 h-5 bg-white rounded-2xl mt-1 ml-6">
+    <div className="flex absolute gap-1 justify-center items-center text-xs w-20 h-5 bg-white rounded-2xl mt-3.5 ml-4">
       <img
         loading="lazy"
         src="../svg/rating-star.svg"

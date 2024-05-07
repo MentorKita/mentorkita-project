@@ -1,31 +1,25 @@
 import React from "react";
-import EditBtn from "../Elements/Button/editBtn";
 
-const ProfileInfo = ({ label, value, layout }) => (
-  <div className={`flex ${layout === "row" ? "justify-between" : "flex-col"}`}>
-    <div
-      className={`flex py-1 ${
-        layout === "row" ? "flex-col gap-0.5" : "justify-between"
-      }
-      `}
-    >
-      <div className="font-semibold text-stone-900 text-opacity-70">
-        {label}
-      </div>
-      {layout === "row" ? (
-        <div className="font-medium text-neutral-800 text-opacity-90">
-          {value}
-        </div>
-      ) : (
-        <EditBtn />
-      )}
+const ProfileInfo = ({ label, value, layout, editable, inputType }) => (
+  <div className="flex py-1 row flex-col gap-1 justify-between">
+    <div className={`font-semibold text-stone-900 text-opacity-70 ${layout}`}>
+      {label}
     </div>
-    {layout === "row" ? (
-      <EditBtn />
-    ) : (
-      <div className="font-medium text-neutral-800 text-opacity-90">
-        {value}
-      </div>
+    {editable ? (
+        inputType === "textarea" ? (
+          <textarea
+            defaultValue={value}
+            className="bg-gray-100 rounded-lg p-2 h-32 font-medium text-neutral-800 border border-gray-300 focus:outline-none focus:border-sky-500"
+          />
+        ) : (
+          <input
+            type="text"
+            defaultValue={value}
+            className="bg-gray-100 rounded-lg p-2 font-medium text-neutral-800 border border-gray-300 focus:outline-none focus:border-sky-500"
+          />
+        )
+      ) : (
+      <div className="font-medium text-neutral-800 text-opacity-90 text-justify">{value}</div>
     )}
   </div>
 );
