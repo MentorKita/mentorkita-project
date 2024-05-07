@@ -126,7 +126,7 @@ const MentorDetail = () => {
           </p>
         </section>
 
-        {/* EXPERIENCE */}
+        {/* EXPERIENCES */}
         <section className="px-6 mt-10">
           <TitleH2 title="Experiences" />
           <p className="font-light text-xs pr-4 text-textColor md:pr-0 lg:text-base">
