@@ -1,4 +1,13 @@
 require("dotenv").config();
+// const Mentee = require("../model/Mentee");
+// const Mentor = require("../model/Mentor");
+// const Saved = require("../model/Saved");
+// const Comment = require("../model/Komentar");
+// const Course = require("../model/Course");
+// const CourseRelationship = require("../model/CourseRelationship");
+// const Skills = require("../model/Skills");
+// const SkillsRelationship = require("../model/SkillsRelationship");
+
 const Mentee = require("../model/Mentee");
 const Mentor = require("../model/Mentor");
 const Saved = require("../model/Saved");
@@ -7,6 +16,8 @@ const Course = require("../model/Course");
 const CourseRelationship = require("../model/CourseRelationship");
 const Skills = require("../model/Skills");
 const SkillsRelationship = require("../model/SkillsRelationship");
+const Experience = require("../model/Experience");
+
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const key = process.env.TOKEN_SECRET_KEY;

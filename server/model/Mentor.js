@@ -1,21 +1,17 @@
 const sequelize = require("../util/db_connect");
 const Sequelize = require("sequelize");
 
-const Mentor = sequelize.define("Mentor", {
-  id_mentor: {
+const Mentor = sequelize.define("mentor", {
+  id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  id_mentee: {
-    type: Sequelize.INTEGER,
-    references: {
-      model: "mentees",
-      key: "id_mentee",
-    },
+  lokasi: {
+    type: Sequelize.STRING,
   },
   rating: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.DOUBLE,
   },
 });
 

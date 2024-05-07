@@ -3,20 +3,12 @@ const Sequelize = require("sequelize");
 
 const Course = require("../model/Course");
 
-const CourseRelationship = sequelize.define("CourseRelationship", {
+const CourseRelationship = sequelize.define("courseRelationship", {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true,
-  },
-  id_mentee: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-  id_course: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
+  }
 });
 
 

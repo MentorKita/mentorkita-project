@@ -2,9 +2,9 @@ const sequelize = require("../util/db_connect");
 const Sequelize = require("sequelize");
 
 const Mentee = sequelize.define(
-  "Mentees",
+  "mentees",
   {
-    id_mentee: {
+    id: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
       primaryKey: true,
@@ -30,10 +30,14 @@ const Mentee = sequelize.define(
       type: Sequelize.STRING,
       allowNull: true,
     },
-    phoneNumber: {
+    phone: {
       type: Sequelize.STRING,
       allowNull: false,
     },
+    about: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    }
   },
   {
     timestamps: true,

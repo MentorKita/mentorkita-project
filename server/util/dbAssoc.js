@@ -8,49 +8,34 @@ const Course = require("../model/Course");
 const CourseRelationship = require("../model/CourseRelationship");
 const Skills = require("../model/Skills");
 const SkillsRelationship = require("../model/SkillsRelationship");
-const Moreinfo = require("../model/Moreinfo");
+const Experience = require("../model/Experience");
 const cloudinary = require("../util/cloudinary_config");
 const fs = require("fs");
-
-//RELASI DITARUH DISINI BELUM BENAR
 
 //SEMISAL ADA TABEL ROLES
 //User.hasMany(Role)
 //Role.belongsTo(User)
+Mentor.belongsToMany(Course, { through: CourseRelationship });
+Course.belongsToMany(Mentor, { through: CourseRelationship });
 
-//RELASI DITARUH DISINI
-// Mentee.hasMany(Comment, { as: "Comments" });
+Mentor.belongsToMany(Skills, { through: SkillsRelationship });
+Skills.belongsToMany(Mentor, { through: SkillsRelationship });
 
-// //Skills
-// Mentee.belongsToMany(Skills, {
-//   through: SkillsRelationship,
-//   as: "MentorSkills",
-//   foreignKey: "id_mentee",
-// });
-// Skills.belongsToMany(Mentee, {
-//   through: SkillsRelationship,
-//   as: "Skills",
-//   foreignKey: "id_skills",
-// });
+Mentee.hasMany(Comment);
+Comment.belongsTo(Mentee);
 
-// //Course
-// Course.belongsToMany(Mentee, {
-//   through: CourseRelationship,
-//   as: "Mentees",
-//   foreignKey: "id_course",
-// });
+Mentor.hasMany(Experience);
+Experience.belongsTo(Mentor);
 
-// Mentee.belongsToMany(Course, {
-//   through: CourseRelationship,
-//   as: "Courses",
-//   foreignKey: "id_mentee",
-// });
+Mentee.hasMany(Mentor);
+Mentor.belongsTo(Mentee);
 
-// Mentee.belongsToMany(Mentor, { through: Saved, as: "SavedMentor" });
+Mentee.belongsToMany(Mentor, { through: Saved });
+Mentor.belongsToMany(Mentee, { through: Saved });
 
 const association = async () => {
   try {
-    await sequelize.sync({});
+    await sequelize.sync({ force: true });
   } catch (error) {
     console.log(error.message);
   }

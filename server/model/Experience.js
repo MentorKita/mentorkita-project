@@ -1,16 +1,20 @@
 const sequelize = require("../util/db_connect");
 const Sequelize = require("sequelize");
 
-const Skills = sequelize.define("skills", {
+const Experience = sequelize.define("experience", {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  nama_skills: {
+  year: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
+  desc: {
     type: Sequelize.STRING,
     allowNull: false,
   }
 });
 
-module.exports = Skills;
+module.exports = Experience;
