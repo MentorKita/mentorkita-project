@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-const CheckboxForm = ({ object, handleObjectChange, selectedObject }) => {
+const CheckboxForm = ({ object, handleObjectChange, selectedObject, customClass }) => {
   const [isChecked, setIsChecked] = useState(
     selectedObject.includes(object.value)
   );
@@ -12,16 +12,19 @@ const CheckboxForm = ({ object, handleObjectChange, selectedObject }) => {
   };
 
   return (
-    <div className="flex items-center">
+    <div className={`flex items-center ${customClass}`}>
       <input
         type="checkbox"
         id={object.value}
         value={object.value}
         onChange={handleCheckboxChange}
         checked={isChecked}
-        className="mr-2"
+        className={`mr-2`}
       />
-      <label htmlFor={object.value} className={isChecked ? "font-semibold" : ""}>
+      <label
+        htmlFor={object.value}
+        className={isChecked ? "font-semibold" : ""}
+      >
         {object.label}
       </label>
     </div>
@@ -35,6 +38,7 @@ CheckboxForm.propTypes = {
   }).isRequired,
   handleObjectChange: PropTypes.func.isRequired,
   selectedObject: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  customClass: PropTypes.string.isRequired,
 };
 
 export default CheckboxForm;
