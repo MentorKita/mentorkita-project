@@ -12,6 +12,8 @@ import ProfileMentor from "./pages/ProfileMentor";
 import ProfileUser from "./pages/ProfileUser";
 import LoginUser from "./pages/LoginUser"
 import RegisterUser from "./pages/RegisterUser"
+import ProfileUserEdit from "./pages/ProfileUserEdit";
+import ProfileMentorEdit from "./pages/ProfileMentorEdit";
 
 const router = createBrowserRouter([
   {
@@ -43,8 +45,16 @@ const router = createBrowserRouter([
     element: <ProfileMentor />,
   },
   {
+    path: "/profileMentor/edit/:id",
+    element: <ProfileMentorEdit />,
+  },
+  {
     path: "/profileUser/:id",
     element: <ProfileUser />,
+  },
+  {
+    path: "/profileUser/edit/:id",
+    element: <ProfileUserEdit />,
   },
   {
     path: "/loginUser",

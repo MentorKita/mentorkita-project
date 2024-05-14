@@ -8,7 +8,7 @@ const SkillsSection = ({ skills }) => {
         <span
           key={index}
           className="px-2 py-1 text-[8px] font-medium bg-[#D4DBEC] text-textColor rounded-full
-          lg:text-base"
+          lg:text-[14px]"
         >
           {skill}
         </span>
