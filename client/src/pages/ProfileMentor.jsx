@@ -34,24 +34,7 @@ function Stat({ value, label }) {
 
 function ProfileMentor() {
   let { id } = useParams();
-  // Filter mentor based on ID
   const mentor = mentors.find((mentor) => mentor.id === parseInt(id));
-
-  const [isEditing, setIsEditing] = React.useState(false);
-
-  const toggleEdit = () => {
-    setIsEditing(!isEditing);
-  };
-
-  const handleSave = () => {
-    // Logic to save changes
-    setIsEditing(false);
-  };
-
-  const handleCancel = () => {
-    // Logic to cancel editing
-    setIsEditing(false);
-  };
 
   return (
     <div className="flex flex-col font-poppins min-h-screen">
@@ -66,7 +49,7 @@ function ProfileMentor() {
               className="w-28"
             />
             <div className="text-center font-medium">My Profile</div>
-            {!isEditing && <EditBtn onClick={toggleEdit} />}
+            <EditBtn link={"/profileMentor/edit/" + 1} />
             <div className="flex gap-4 items-center">
               {stats.map((stat, index) => (
                 <React.Fragment key={index}>
@@ -76,24 +59,7 @@ function ProfileMentor() {
               ))}
             </div>
             <div className="hidden md:block w-full">
-              {isEditing ? (
-                <div className="flex gap-4">
-                  <button
-                    onClick={handleSave}
-                    className="flex justify-center items-center py-2.5 w-full text-xs font-semibold text-red-600 bg-white rounded-md border border-solid border-red-300 cursor-pointer hover:bg-red-500 hover:text-white transition-all"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    onClick={handleCancel}
-                    className="flex justify-center items-center py-2.5 w-full text-xs font-semibold text-blue-800 bg-white rounded-md border border-solid border-blue-300 cursor-pointer hover:bg-blue-600 hover:text-white transition-all"
-                  >
-                    Save
-                  </button>
-                </div>
-              ) : (
-                <LogoutBtn />
-              )}
+              <LogoutBtn />
             </div>
           </section>
           <section className="md:w-1/3 flex flex-col gap-3">
@@ -101,44 +67,29 @@ function ProfileMentor() {
               <ProfileInfo
                 label={"Name"}
                 value={mentor.name}
-                layout={"text-left"}
-                editable={isEditing}
-                inputType={"text"}
               />
               <ProfileInfo
                 label={"Email"}
                 value={mentor.email}
-                layout={"text-left"}
-                editable={isEditing}
-                inputType={"text"}
               />
               <ProfileInfo
                 label={"Phone Number"}
                 value={mentor.phone}
-                layout={"text-left"}
-                editable={isEditing}
-                inputType={"text"}
               />
             </div>
             <div className="flex flex-col gap-2 px-4 py-2 text-xs rounded-md border border-solid border-gray-200">
               <ProfileInfo
                 label={"Job"}
                 value={mentor.work}
-                layout={"text-left"}
-                editable={isEditing}
-                inputType={"text"}
               />
               <ProfileInfo
                 label={"Location"}
                 value={mentor.location}
-                layout={"text-left"}
-                editable={isEditing}
-                inputType={"text"}
               />
             </div>
             <div>
               <Accordion
-                title={"Edit Skill"}
+                title={"Course"}
                 content={<FilterMentor addClass={"mt-2"} />}
               />
               <SkillsSection
@@ -147,7 +98,7 @@ function ProfileMentor() {
               />
             </div>
             <div>
-              <Accordion title={"Course List"} content={<CourseCheckbox />} />
+              <Accordion title={"Skills"} content={<CourseCheckbox />} />
             </div>
           </section>
           <section className="md:w-1/3 flex flex-col gap-3">
@@ -155,39 +106,16 @@ function ProfileMentor() {
               <ProfileInfo
                 label={"About Me"}
                 value={mentor.about}
-                layout={"text-center"}
-                editable={isEditing}
-                inputType={"textarea"}
               />
             </section>
             <section className="flex flex-col gap-2 px-4 py-2 text-xs rounded-md border border-solid border-gray-200">
               <ProfileInfo
                 label={"Experience"}
                 value={mentor.experiences}
-                layout={"text-center"}
-                editable={isEditing}
-                inputType={"textarea"}
               />
             </section>
             <div className="md:hidden">
-              {isEditing ? (
-                <div className="flex gap-4">
-                  <button
-                    onClick={handleSave}
-                    className="flex justify-center items-center py-2.5 w-full text-xs font-semibold text-red-600 bg-white rounded-md border border-solid border-red-300 cursor-pointer hover:bg-red-500 hover:text-white transition-all"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    onClick={handleCancel}
-                    className="flex justify-center items-center py-2.5 w-full text-xs font-semibold text-blue-800 bg-white rounded-md border border-solid border-blue-300 cursor-pointer hover:bg-blue-600 hover:text-white transition-all"
-                  >
-                    Save
-                  </button>
-                </div>
-              ) : (
-                <LogoutBtn />
-              )}
+              <LogoutBtn />
             </div>
           </section>
         </div>
