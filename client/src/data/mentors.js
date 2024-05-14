@@ -13,8 +13,19 @@ const mentors = [
     skills: ["Enterpreneurship", "Marketing", "Advertising", "Branding"],
     about:
       "Alex Freshman is an exceptional mentor who brings a wealth of experience  and enthusiasm to the mentoring program. With a solid background in mention relevant field or industry, Alex demonstrates a genuine  passion for guiding and supporting mentees in their personal and  professional development.",
-    experiences:
-      "Alex Freshman is an exceptional mentor who brings a wealth of experience  and enthusiasm to the mentoring program. With a solid background in mention relevant field or industry, Alex demonstrates a genuine  passion for guiding and supporting mentees in their personal and  professional development.",
+    experiences: [
+      {
+        title:
+          "Senior Copywriter | The Art of Digital Content | Anaheim, CA | 2018 – Present",
+        description:
+          "- Create high impact messaging for all marketing media, contributing to a 35% increase in revenue and market share. - Provide  editorial guidance to other four cross functinal departments, including  the marketing team, ensuring the delivery of top quality content. - Authored online display ads that drove click conversion rates of 2.35% in two months.",
+      },
+      {
+        title:
+          "Copywriter | The Art of Digital Content | Anaheim, CA | 2013 – 2018",
+        description: "Edited  100+ pieces of content produced by senior executives, modifying the  text to conform to company wide branding standards and publication  guidelines. Wrote advertising copy for online content, adhering  to employers’ overarching brand identity and personality, and increasing  click through rates by 25%. Incorporated between 11.5k and 30.3k SEO keywords into copy to increase search result rankings, producing high conversion rates.",
+      },
+    ],
     mentees: [1, 2, 3],
     status: "Review",
     // ini ga usah bingung, pilih salah satu saja, mau make object atau array, prefer array aja
