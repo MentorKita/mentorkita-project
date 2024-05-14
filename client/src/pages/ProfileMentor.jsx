@@ -141,7 +141,10 @@ function ProfileMentor() {
                 title={"Edit Skill"}
                 content={<FilterMentor addClass={"mt-2"} />}
               />
-              <SkillsSection skills={mentor.skills} />
+              <SkillsSection
+                skills={mentor.skills}
+                customClass={`bg-[#D4DBEC] text-textColor`}
+              />
             </div>
             <div>
               <Accordion title={"Course List"} content={<CourseCheckbox />} />

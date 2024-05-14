@@ -25,7 +25,10 @@ const CardMentor = ({ mentor }) => {
           <div className="hidden md:block">
             <RatingBadge2 rating={mentor.rating} reviewers={mentor.reviewers} />
           </div>
-          <SkillsSection skills={mentor.skills} />
+          <SkillsSection
+            skills={mentor.skills}
+            customClass={`bg-[#D4DBEC] text-textColor`}
+          />
         </div>
       </div>
       <div className="mt-3 text-justify text-black font-normal text-[8px] md:text-xs leading-3">
