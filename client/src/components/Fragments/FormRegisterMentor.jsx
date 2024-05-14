@@ -144,10 +144,34 @@ const FormRegisterMentor = () => {
           value={location}
         />
       </section>
+      {/* choose course */}
+      <section className="mb-8">
+        <Accordion
+          title={"Choose Course"}
+          content={
+            <div className="my-2 pl-1 pr-4">
+              <div className="bg-gray-200 py-2 px-4 rounded-lg">
+                {courses.map((skill) => (
+                  <CheckBoxForm
+                    key={skill.value}
+                    object={skill}
+                    handleObjectChange={handleCourseChange}
+                    selectedObject={selectedCourses}
+                  />
+                ))}
+              </div>
+            </div>
+          }
+        />
+        <DisplaySkills
+          customClass={`bg-[#D4DBEC] text-textColor`}
+          skills={selectedCourses.map((value) => ({ value, label: value }))}
+        />
+      </section>
       {/* choose skills */}
       <section className="mb-8">
         <Accordion
-          title={"Choose Skill"}
+          title={"Choose Skills"}
           content={
             <div className="my-2 pl-1 pr-4">
               <div className="bg-gray-200 py-2 px-4 rounded-lg">
@@ -164,27 +188,8 @@ const FormRegisterMentor = () => {
           }
         />
         <DisplaySkills
+          customClass={`bg-[#081C87] text-white`}
           skills={selectedSkills.map((value) => ({ value, label: value }))}
-        />
-      </section>
-      {/* Add Course */}
-      <section className="mb-8">
-        <Accordion
-          title={"Add Course"}
-          content={
-            <div className="my-2 pl-1 pr-4">
-              <div className="py-2 px-4 rounded-lg">
-                {courses.map((course) => (
-                  <CheckBoxForm
-                    key={course}
-                    object={course}
-                    handleObjectChange={handleCourseChange}
-                    selectedObject={selectedCourses}
-                  />
-                ))}
-              </div>
-            </div>
-          }
         />
       </section>
       <section className="mb-8">
