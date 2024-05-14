@@ -6,7 +6,7 @@ import FormRegisterMentor from "../components/Fragments/FormRegisterMentor";
 const BecomeAMentor = () => {
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       <div className="flex flex-col font-poppins min-h-screen">
         <main className="flex flex-col items-center flex-grow 
         bg-white pt-4 pb-20 px-8 md:px-20 lg:px-[440px]">
