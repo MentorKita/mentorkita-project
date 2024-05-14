@@ -18,10 +18,6 @@ const Mentee = sequelize.define(
       type: Sequelize.STRING,
       allowNull: false,
     },
-    username: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
     password: {
       type: Sequelize.STRING,
       allowNull: false,
@@ -30,14 +26,18 @@ const Mentee = sequelize.define(
       type: Sequelize.STRING,
       allowNull: true,
     },
-    phone: {
+    phoneNumber: {
       type: Sequelize.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     about: {
       type: Sequelize.STRING,
+      allowNull: true,
+    },
+    role: {
+      type: Sequelize.ENUM("MENTEE", "MENTOR"),
       allowNull: false,
-    }
+    },
   },
   {
     timestamps: true,

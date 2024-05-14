@@ -12,9 +12,7 @@ const Experience = require("../model/Experience");
 const cloudinary = require("../util/cloudinary_config");
 const fs = require("fs");
 
-//SEMISAL ADA TABEL ROLES
-//User.hasMany(Role)
-//Role.belongsTo(User)
+// Roles
 Mentor.belongsToMany(Course, { through: CourseRelationship });
 Course.belongsToMany(Mentor, { through: CourseRelationship });
 
@@ -35,7 +33,7 @@ Mentor.belongsToMany(Mentee, { through: Saved });
 
 const association = async () => {
   try {
-    await sequelize.sync({ force: true });
+    await sequelize.sync({ force: false });
   } catch (error) {
     console.log(error.message);
   }

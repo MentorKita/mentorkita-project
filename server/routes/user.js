@@ -1,18 +1,70 @@
 const express = require("express");
 const router = express.Router();
-const UserController = require("../controllers/user");
+const upload = require("../middleware/upload_file");
+const {
+  postUser,
+  loginHandler,
+  getUserProfile,
+  editUserAccount,
+} = require("../controller/user");
 
 // Routes for Mentee
-router.post("/mentee/register", UserController.registerMentee);
 
-// Routes for Mentor
-router.post("/mentor/register", UserController.registerMentor);
-router.get("/mentors", UserController.getAllMentors);
+router.post("/users/registerUser", postUser);
 
-// Routes for Relationship
-router.post("/relationship/save", UserController.saveRelationship);
+router.post("/users/loginUser", loginHandler);
 
-// Routes for Comments
-router.post("/comment/add", UserController.addComment);
+router.get("/users/profileUser", getUserProfile);
+
+router.put(
+  "/users/editUserProfile",
+  upload.single("profilePict"),
+  editUserAccount
+);
 
 module.exports = router;
+
+/*
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Dashboard />,
+  },
+  {
+    path: "/mentorDetail/:id",
+    element: <MentorDetail />,
+  },
+  {
+    path: "/searchMentor",
+    element: <SearchMentor />,
+  },
+  {
+    path: "/courseMentor",
+    element: <CourseMentor />,
+  },
+  {
+    path: "/courseUser",
+    element: <CourseUser />,
+  },
+  {
+    path: "/BecomeAMentor",
+    element: <BecomeAMentor />,
+  },
+  {
+    path: "/profileMentor/:id",
+    element: <ProfileMentor />,
+  },
+  {
+    path: "/profileUser/:id", Done
+    element: <ProfileUser />,
+  },
+  {
+    path: "/loginUser", Done
+    element: <LoginUser />,
+  },
+  {
+    path: "/registerUser", Done
+    element: <RegisterUser />,
+  },
+]);
+*/

@@ -90,10 +90,18 @@ const postUser = async (req, res) => {
       role: "MEMBER",
     });
 
-    const token = jwt.sign({ userId: newUser.id, role: newUser.role }, key, {
-      algorithm: "HS256",
-      expiresIn: "1h",
-    });
+    const token = jwt.sign(
+      {
+        userId: newUser.id,
+        role: newUser.role,
+        divisionId: newUser.divisionId,
+      },
+      key,
+      {
+        algorithm: "HS256",
+        expiresIn: "1h",
+      }
+    );
 
     res.status(201).json({
       status: "success",
