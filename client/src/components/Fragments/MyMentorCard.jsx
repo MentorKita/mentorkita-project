@@ -4,7 +4,7 @@ import StarRating from "../Elements/starRating";
 import MentorReview from "./MentorReview";
 import mentors from "../../data/mentors";
 
-const MyMentorCard = ({ name, status, photo, rating, course, ratingBadge }) => {
+const MyMentorCard = ({ name, status, photo, rating, course, ratingBadge, courseUser }) => {
   const ratingInNumber = Number(rating);
   const [isReviewVisible, setIsReviewVisible] = useState(false);
 
@@ -32,7 +32,9 @@ const MyMentorCard = ({ name, status, photo, rating, course, ratingBadge }) => {
           {/* nama */}
           <p className="text-base font-bold lg:text-2xl">{name}</p>
           {/* course */}
-          <p className="text-[10px] font-normal mb-1 lg:text-lg">{course}</p>
+          <p className="text-[10px] font-normal mb-1 lg:text-lg">
+            {courseUser}
+          </p>
           {/* Rating */}
           <div className="h-4 mb-2">
             <div className={` ${status === "Done" ? "block" : "hidden"}`}>
@@ -67,6 +69,8 @@ MyMentorCard.propTypes = {
   photo: PropTypes.string,
   rating: PropTypes.string,
   course: PropTypes.string,
+  ratingBadge: PropTypes.string,
+  courseUser: PropTypes.string,
 };
 
 export default MyMentorCard;

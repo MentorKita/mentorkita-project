@@ -9,16 +9,16 @@ const Dashboard = () =>{
     return(
     <>
         <Navbar />
-        <div className=" w-[375px] h-[320px] lg:w-[1280px] lg:h-[512px]">
+        <div className=" w-full h-[320px] lg:h-[512px]">
             <section className="relative">
-                <div className="w-[375px] h-[150px] absolute z-0 mt-[30px] lg:w-[1280px] lg:h-[300px] lg:ml-[100px]">
-                    <h1 className="font-bold text-[35px] leading-[50px] ml-[10px] lg:text-[64px] lg:leading-[96px] ">Connect.</h1>
-                    <h1 className="font-bold text-[35px] leading-[50px] ml-[10px] lg:text-[64px] lg:leading-[96px]">Mentor.</h1>
-                    <h1 className="font-bold text-[35px] leading-[50px] ml-[10px] lg:text-[64px] lg:leading-[96px]">Thrive. </h1>
+                <div className="w-[375px] h-[150px] absolute z-0 mt-[30px] lg:w-[1280px] lg:h-[300px] lg:ml-[200px]">
+                    <h1 className="font-bold text-[35px] leading-[50px] ml-[20px] lg:text-[64px] lg:leading-[96px] ">Connect.</h1>
+                    <h1 className="font-bold text-[35px] leading-[50px] ml-[20px] lg:text-[64px] lg:leading-[96px]">Mentor.</h1>
+                    <h1 className="font-bold text-[35px] leading-[50px] ml-[20px] lg:text-[64px] lg:leading-[96px]">Thrive. </h1>
                 </div>
-                <img className="w-[200px] absolute ml-[175px] mt-[30px] py-[5px] z-10 rounded-tl-[200px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px] lg:w-[600px] lg:ml-[600px] lg:" src="https://s3-alpha-sig.figma.com/img/6247/339a/3fc9a9f22e4347edb225b2e654c980c9?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pBH7l2GyPVt8txITZibUSEbHbaoW4QvnjJt-hEPG2XRs2MgQOeIHq4wfdhGgJaHwhD1wAP2vEulSyj65YTH4FyhE-cYar4yfxbqitgdTaFAtpV8NvCwWTAMN5z2xo5JkrnLW3mgrSQiddypdbQ8HKSXSVZhMLPnw1b9sIU-Xu7pedo-cFBg4yXwOi0d24iiZCOTFAsFbv55Vjgulj5wau4aXMWaweFMmxAs4RaoXZA7PUjwVl9XDEtBCJlGuaoPUi9JnuTlgHWWvjsM77w3b8pEgA-kynQxAv7iKTHLPXmZD1-stbd~wJluVEgTP1akKJorbko5UBiOVP6NCcAIlEA__" alt="" />
+                <img className="w-36 absolute ml-48 mt-[30px] py-[5px] z-10 rounded-lg lg:w-[475px] lg:ml-[700px]" src="../../public/svg/dash-trapezium-img.svg" alt="" />
             </section>
-            <section className="absolute lg:mt-[150px] lg:ml-[115px]">
+            <section className="absolute lg:mt-[150px] lg:ml-[215px]">
                 <p className="text-[#3D5AF1] mt-[190px] w-[375px] text-center font-semibold lg:text-[24px] lg:leading-[36px] lg:text-left">Find and start your</p>
                 <p className="text-[#3D5AF1] w-[375px] text-center font-semibold lg:text-[24px] lg:leading-[36px] lg:text-left ">personal mentorship here</p>
                 <div className="w-full relative">
@@ -27,7 +27,7 @@ const Dashboard = () =>{
             </section>
             
         </div>
-        <div className="w-[375px] h-[300px] bg-blue-200 lg:w-[1280px] lg:h-[659px]">
+        <div className="w-full h-[300px] bg-blue-200 lg:h-[659px]">
             <p className="font-bold text-[20px] text-center mt-[10px] pt-[20px] lg:text-[40px] lg:leading-[60px] lg:pt-[40px]">Top Rated Mentors</p>
             <section className="overflow-x-auto">
                 <div className="w-[800px] py-[20px] px-[20px] flex flex-row lg:w-[1550px]">
@@ -45,7 +45,7 @@ const Dashboard = () =>{
                 </div>
             </section>
         </div>
-        <div className="w-[375px] h-[300px] bg-white lg:w-[1280px] lg:h-[462px] lg:mb-[100px]">
+        <div className="w-full h-[300px] bg-white lg:h-[462px] lg:mb-[100px]">
             <p className="text-[18px] font-bold text-center mt-[10px] pt-[20px] lg:text-[40px] lg:leading-[60px]">Why we need <span className="text-blue-800">Mentor </span><span className="text-blue-400">Kita</span></p>
             <section className="flex flex-col bg-blue-200 h-[180px] w-[300px] rounded-xl mx-auto shadow-xl lg:w-[1280px] lg:h-[373px] lg:flex-row lg:my-[20px]">
                 <figure className="flex flex-row my-1 mx-4 pt-4 lg:pt-10 lg:flex-col lg:w-[340px] lg:h-[203px] lg:ml-14 ">
@@ -71,7 +71,7 @@ const Dashboard = () =>{
                 </figure>
             </section>
         </div>
-        <div className="w-full h-[275px] bg-blue-800 lg:w-[1280px] lg:h-[1337px]">
+        <div className="w-full h-[275px] bg-blue-800 lg:h-[1337px]">
             <p className="text-white text-[18px] font-semibold text-center pt-6 mb-6 lg:text-[40px] lg:leading-[60px] lg:pt-[40px] ">Our Users Overview</p>
             <section className="overflow-x-auto">
                 <div className="w-[625px] flex flex-row lg:flex-col lg:mx-auto">
@@ -111,7 +111,6 @@ const Dashboard = () =>{
         </div>
         <Footer />
         
-
     </>
     );
 };

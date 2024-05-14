@@ -14,7 +14,7 @@ const LoginUser = () =>{
                     <img src="../../public/images/Load.png" alt="" />
                 </figure>
             </div>
-            <div className="lg:w-[890px] lg:h-[844px]">
+            <div className="lg:ml-auto lg:w-[890px] lg:h-[844px]">
                 <div className="mt-[50px] pt-[20px] text-center">
                     <h1 className="text-blue-800 my-[10px] text-[32px] font-bold">Login <span className="text-blue-400">here</span></h1>
                     <h2 className="w-[220px] mx-auto text-[16px] font-semibold ">Selamat datang kembali, senang berjumpa lagi dengan Anda!</h2>
@@ -26,7 +26,7 @@ const LoginUser = () =>{
                     <InputLogin placeholder="password" />
                 </div>
                 <p className="text-[#081C87] text-[16px] ml-[225px] my-[15px] lg:ml-[475px]">Lupa password?</p>
-                <div className="w-{350px] ml-[13px]">
+                <div className="w-{350px] ml-2">
                     <DarkBlueButton type="submit" customClass="py-3 px-2 w-[350px] h-[60px] lg:ml-[255px]">
                         Sign In
                     </DarkBlueButton>
