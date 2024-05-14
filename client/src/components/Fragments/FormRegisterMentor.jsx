@@ -7,15 +7,11 @@ import DisplaySkills from "./DisplaySkills";
 import skills from "../../data/skills";
 import courses from "../../data/courses";
 import DarkBlueButton from "../Elements/Button/darkBlueButton";
+import TitleH2 from "../Elements/titleH2";
 
 const FormRegisterMentor = () => {
-  const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [job, setJob] = useState("");
-  const [location, setLocation] = useState("");
-  const [experience, setExperience] = useState("");
-  const [about, setAbout] = useState("");
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [selectedCourses, setSelectedCourses] = useState([]);
   const [emailError, setEmailError] = useState("");
@@ -99,7 +95,6 @@ const FormRegisterMentor = () => {
           placeholder="Your Name"
           name="name"
           requiredStatus={true}
-          value={name}
         />
       </section>
       {/* no telepon */}
@@ -136,7 +131,6 @@ const FormRegisterMentor = () => {
           placeholder="Your Job"
           name="job"
           requiredStatus={true}
-          value={job}
         />
       </section>
       {/* location */}
@@ -193,17 +187,6 @@ const FormRegisterMentor = () => {
           }
         />
       </section>
-      {/* experience */}
-      <section className="mb-10">
-        <TextareaForm
-          type="text"
-          label="Experience"
-          placeholder="Tell us about your experience"
-          name="experience"
-          requiredStatus={true}
-          value={experience}
-        />
-      </section>
       <section className="mb-8">
         <TextareaForm
           type="text"
@@ -211,8 +194,30 @@ const FormRegisterMentor = () => {
           placeholder="Tell us about yourself"
           name="about"
           requiredStatus={true}
-          value={about}
         />
+      </section>
+      {/* experience */}
+      <TitleH2 title="Experience" />
+      <section className="mb-10 mt-6 px-3 pb-3 border-2 border-[#C9C9C9] rounded-md">
+        <InputForm
+          type="text"
+          label="Title"
+          placeholder="Enter an experience title"
+          name="title"
+          requiredStatus={true}
+        />
+        <TextareaForm
+          type="text"
+          label="Experience"
+          placeholder="Tell us about your experience"
+          name="experience"
+          requiredStatus={true}
+        />
+        {/* <div className="mt-4 px-4">
+          <DarkBlueButton type="submit" customClass="py-2 px-2 w-full bg-yellow-400 text-[#081C87]">
+            Edit
+          </DarkBlueButton>
+        </div> */}
       </section>
       <DarkBlueButton type="submit" customClass="py-3 px-2 w-full">
         Register

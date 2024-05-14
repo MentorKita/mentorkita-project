@@ -92,8 +92,8 @@ const MentorDetail = () => {
                     {mentor.location}
                   </p>
                 </div>
-                {/* location */}
-                <div className="flex gap-1 items-center mt-2">
+                {/* save/bookmark mentor */}
+                {/* <div className="flex gap-1 items-center mt-2">
                   <img
                     src={
                       isSaved
@@ -110,7 +110,7 @@ const MentorDetail = () => {
                   <p className="text-sm font-semibold text-textColor ps-[7px] lg:text-lg">
                     Save
                   </p>
-                </div>
+                </div> */}
               </div>
               {/* SKILLS */}
               <div className="px-6 md:px-0 md:mt-8">
