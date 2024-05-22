@@ -8,7 +8,17 @@ const Skills = sequelize.define("skills", {
     autoIncrement: true,
   },
   nama_skills: {
-    type: Sequelize.STRING,
+    type: Sequelize.ENUM,
+    values: [
+      'Advertising',
+      'Branding',
+      'Back-End Development',
+      'Front-End Development',
+      'Enterpreneurship',
+      'Marketing',
+      'Project Managering',
+      'UX Designer'
+    ],
     allowNull: false,
   }
 });
