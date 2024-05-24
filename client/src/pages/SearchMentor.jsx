@@ -17,7 +17,7 @@ function SearchMentor() {
   return (
     <div>
       <Navbar />
-      <main className="flex flex-col font-poppins min-h-screen relative ">
+      <main className="flex flex-col font-poppins min-h-screen relative pt-4">
         <div className="flex-grow bg-white px-6 md:px-20">
           <div className="flex gap-5 justify-between py-5 text-sm bg-white text-neutral-400">
             <button type="button" onClick={toggleDropdown}>
@@ -37,7 +37,7 @@ function SearchMentor() {
             <SearchBar />
           </div>
           <div className="flex flex-col items-center mt-3 w-full text-xs font-medium">
-            <h2 className="self-start text-xl font-bold text-black">
+            <h2 className="self-start text-xl md:text-2xl font-bold text-black">
               Recommended For You
             </h2>
             {mentors.map((mentor, index) => (

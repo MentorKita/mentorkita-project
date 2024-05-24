@@ -79,19 +79,19 @@ const ProfileMentorEdit = () => {
                     onChange={handleImageChange}
                   />
                 </label>
-                <div className="text-center font-medium">Edit Profile</div>
+                <div className="text-center font-medium text-base md:text-lg">Edit Profile</div>
                 <div className="hidden w-full md:block mt-4">
                   <div className="flex gap-4">
                     <button
                       type="button"
                       onClick={handleCancel}
-                      className="flex justify-center items-center py-2.5 w-full text-xs font-semibold text-red-600 bg-white rounded-md border border-solid border-red-300 cursor-pointer hover:bg-red-500 hover:text-white transition-all"
+                      className="flex justify-center items-center py-2.5 w-full text-xs md:text-sm font-semibold text-red-600 bg-white rounded-md border border-solid border-red-300 cursor-pointer hover:bg-red-500 hover:text-white transition-all"
                     >
                       Cancel
                     </button>
                     <button
                       type="submit"
-                      className="flex justify-center items-center py-2.5 w-full text-xs font-semibold text-blue-800 bg-white rounded-md border border-solid border-blue-300 cursor-pointer hover:bg-blue-600 hover:text-white transition-all"
+                      className="flex justify-center items-center py-2.5 w-full text-xs md:text-sm font-semibold text-blue-800 bg-white rounded-md border border-solid border-blue-300 cursor-pointer hover:bg-blue-600 hover:text-white transition-all"
                     >
                       Save
                     </button>
@@ -99,11 +99,11 @@ const ProfileMentorEdit = () => {
                 </div>
               </section>
               <form
-                className="md:w-full flex flex-col md:flex-row md:justify-between gap-4 md:gap-8"
+                className="md:w-full flex flex-col md:flex-row md:justify-between gap-4 md:gap-8 text-xs md:text-sm"
                 onSubmit={handleSave}
               >
                 <div className="md:w-full flex flex-col gap-3">
-                  <div className="flex flex-col gap-2 px-4 py-2 mt-3 md:mt-0 text-xs rounded-md border border-solid border-gray-200">
+                  <div className="flex flex-col gap-2 px-4 py-2 mt-3 md:mt-0 rounded-md border border-solid border-gray-200">
                     <ProfileInfoEdit
                       label={"Name"}
                       value={formData.name}
@@ -123,7 +123,7 @@ const ProfileMentorEdit = () => {
                       onChange={handleChange}
                     />
                   </div>
-                  <div className="flex flex-col gap-2 px-4 py-2 mt-3 md:mt-0 text-xs rounded-md border border-solid border-gray-200">
+                  <div className="flex flex-col gap-2 px-4 py-2 mt-3 md:mt-0 rounded-md border border-solid border-gray-200">
                     <ProfileInfoEdit
                       label={"Job"}
                       value={formData.work}
@@ -149,7 +149,7 @@ const ProfileMentorEdit = () => {
                   </div>
                 </div>
                 <div className="md:w-full flex flex-col gap-2">
-                  <div className="flex flex-col gap-2 px-4 py-2 text-xs rounded-md border border-solid border-gray-200">
+                  <div className="flex flex-col gap-2 px-4 py-2 rounded-md border border-solid border-gray-200">
                     <ProfileInfoEdit
                       label={"About Me"}
                       value={formData.about}
@@ -157,7 +157,7 @@ const ProfileMentorEdit = () => {
                       onChange={handleChange}
                     />
                   </div>
-                  <div className="flex flex-col px-4 py-2 text-xs rounded-md border border-solid border-gray-200">
+                  <div className="flex flex-col px-4 py-2 rounded-md border border-solid border-gray-200">
                     <ProfileInfoEdit
                       label={"Experience"}
                       value={formData.about}
@@ -176,13 +176,13 @@ const ProfileMentorEdit = () => {
                     <button
                       type="button"
                       onClick={handleCancel}
-                      className="flex justify-center items-center py-2.5 w-full text-xs font-semibold text-red-600 bg-white rounded-md border border-solid border-red-300 cursor-pointer hover:bg-red-500 hover:text-white transition-all"
+                      className="flex justify-center items-center py-2.5 w-full text-xs md:text-sm font-semibold text-red-600 bg-white rounded-md border border-solid border-red-300 cursor-pointer hover:bg-red-500 hover:text-white transition-all"
                     >
                       Cancel
                     </button>
                     <button
                       type="submit"
-                      className="flex justify-center items-center py-2.5 w-full text-xs font-semibold text-blue-800 bg-white rounded-md border border-solid border-blue-300 cursor-pointer hover:bg-blue-600 hover:text-white transition-all"
+                      className="flex justify-center items-center py-2.5 w-full text-xs md:text-sm font-semibold text-blue-800 bg-white rounded-md border border-solid border-blue-300 cursor-pointer hover:bg-blue-600 hover:text-white transition-all"
                     >
                       Save
                     </button>

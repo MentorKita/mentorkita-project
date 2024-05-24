@@ -2,7 +2,7 @@ import React from 'react'
 
 const RatingBadge2 = ({rating, reviewers}) => {
   return (
-    <div className="flex gap-1 text-xs">
+    <div className="flex gap-1 text-xs md:text-sm">
       <img
         loading="lazy"
         src="../svg/rating-star.svg"

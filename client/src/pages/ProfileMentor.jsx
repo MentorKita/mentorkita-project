@@ -26,8 +26,10 @@ function Divider() {
 function Stat({ value, label }) {
   return (
     <div className="flex flex-col justify-center">
-      <div className="self-center text-xl font-semibold">{value}</div>
-      <div className="text-xs text-center">{label}</div>
+      <div className="self-center text-xl md:text-2xl font-semibold">
+        {value}
+      </div>
+      <div className="text-xs md:text-sm text-center">{label}</div>
     </div>
   );
 }
@@ -48,7 +50,9 @@ function ProfileMentor() {
               alt="Profile Photo"
               className="w-28"
             />
-            <div className="text-center font-medium">My Profile</div>
+            <div className="text-center font-medium text-base md:text-lg">
+              My Profile
+            </div>
             <EditBtn link={"/profileMentor/edit/" + 1} />
             <div className="flex gap-4 items-center">
               {stats.map((stat, index) => (
@@ -62,30 +66,15 @@ function ProfileMentor() {
               <LogoutBtn />
             </div>
           </section>
-          <section className="md:w-1/3 flex flex-col gap-3">
-            <div className="flex flex-col gap-2 px-4 py-2 text-xs rounded-md border border-solid border-gray-200">
-              <ProfileInfo
-                label={"Name"}
-                value={mentor.name}
-              />
-              <ProfileInfo
-                label={"Email"}
-                value={mentor.email}
-              />
-              <ProfileInfo
-                label={"Phone Number"}
-                value={mentor.phone}
-              />
+          <section className="md:w-1/3 flex flex-col gap-3 text-xs md:text-sm">
+            <div className="flex flex-col gap-2 px-4 py-2 rounded-md border border-solid border-gray-200">
+              <ProfileInfo label={"Name"} value={mentor.name} />
+              <ProfileInfo label={"Email"} value={mentor.email} />
+              <ProfileInfo label={"Phone Number"} value={mentor.phone} />
             </div>
-            <div className="flex flex-col gap-2 px-4 py-2 text-xs rounded-md border border-solid border-gray-200">
-              <ProfileInfo
-                label={"Job"}
-                value={mentor.work}
-              />
-              <ProfileInfo
-                label={"Location"}
-                value={mentor.location}
-              />
+            <div className="flex flex-col gap-2 px-4 py-2 rounded-md border border-solid border-gray-200">
+              <ProfileInfo label={"Job"} value={mentor.work} />
+              <ProfileInfo label={"Location"} value={mentor.location} />
             </div>
             <div>
               <Accordion
@@ -101,18 +90,12 @@ function ProfileMentor() {
               <Accordion title={"Skills"} content={<CourseCheckbox />} />
             </div>
           </section>
-          <section className="md:w-1/3 flex flex-col gap-3">
-            <section className="flex flex-col gap-2 px-4 py-2 text-xs rounded-md border border-solid border-gray-200">
-              <ProfileInfo
-                label={"About Me"}
-                value={mentor.about}
-              />
+          <section className="md:w-1/3 flex flex-col gap-3 text-xs md:text-sm">
+            <section className="flex flex-col gap-2 px-4 py-2 rounded-md border border-solid border-gray-200">
+              <ProfileInfo label={"About Me"} value={mentor.about} />
             </section>
-            <section className="flex flex-col gap-2 px-4 py-2 text-xs rounded-md border border-solid border-gray-200">
-              <ProfileInfo
-                label={"Experience"}
-                value={mentor.experiences}
-              />
+            <section className="flex flex-col gap-2 px-4 py-2 rounded-md border border-solid border-gray-200">
+              <ProfileInfo label={"Experience"} value={mentor.experiences} />
             </section>
             <div className="md:hidden">
               <LogoutBtn />
@@ -121,8 +104,8 @@ function ProfileMentor() {
         </div>
         <div className="max-w-xl mx-auto">
           <div className="flex justify-between mt-7 w-full font-medium">
-            <div className="text-base font-semibold">My Mentee</div>
-            <div className="text-sm text-sky-500">Show more</div>
+            <div className="text-base md:text-xl font-semibold">My Mentee</div>
+            <a href="/courseMentor" className="text-sm md:text-base text-sky-500">Show more</a>
           </div>
           <div className="w-full py-5">
             {mentees.map((mentee) => (

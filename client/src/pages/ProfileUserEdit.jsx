@@ -75,19 +75,19 @@ const ProfileUserEdit = () => {
                     onChange={handleImageChange}
                   />
                 </label>
-                <div className="text-center font-medium">Edit Profile</div>
+                <div className="text-center font-medium text-base md:text-lg">Edit Profile</div>
                 <div className="hidden w-full md:block mt-4">
                   <div className="flex gap-4">
                     <button
                       type="button"
                       onClick={handleCancel}
-                      className="flex justify-center items-center py-2.5 w-full text-xs font-semibold text-red-600 bg-white rounded-md border border-solid border-red-300 cursor-pointer hover:bg-red-500 hover:text-white transition-all"
+                      className="flex justify-center items-center py-2.5 w-full text-xs md:text-sm font-semibold text-red-600 bg-white rounded-md border border-solid border-red-300 cursor-pointer hover:bg-red-500 hover:text-white transition-all"
                     >
                       Cancel
                     </button>
                     <button
                       type="submit"
-                      className="flex justify-center items-center py-2.5 w-full text-xs font-semibold text-blue-800 bg-white rounded-md border border-solid border-blue-300 cursor-pointer hover:bg-blue-600 hover:text-white transition-all"
+                      className="flex justify-center items-center py-2.5 w-full text-xs md:text-sm font-semibold text-blue-800 bg-white rounded-md border border-solid border-blue-300 cursor-pointer hover:bg-blue-600 hover:text-white transition-all"
                     >
                       Save
                     </button>
@@ -95,10 +95,10 @@ const ProfileUserEdit = () => {
                 </div>
               </section>
               <form
-                className="md:w-3/5 flex flex-col gap-3"
+                className="md:w-3/5 flex flex-col gap-3 text-xs md:text-sm"
                 onSubmit={handleSave}
               >
-                <div className="flex flex-col gap-2 px-4 py-2 mt-3 text-xs rounded-md border border-solid border-gray-200">
+                <div className="flex flex-col gap-2 px-4 py-2 mt-3 rounded-md border border-solid border-gray-200">
                   <ProfileInfoEdit
                     label={"Name"}
                     value={formData.name}
@@ -121,7 +121,7 @@ const ProfileUserEdit = () => {
                     onChange={handleChange}
                   />
                 </div>
-                <div className="flex flex-col gap-2 px-4 py-2 text-xs rounded-md border border-solid border-gray-200">
+                <div className="flex flex-col gap-2 px-4 py-2 rounded-md border border-solid border-gray-200">
                   <ProfileInfoEdit
                     label={"About Me"}
                     value={formData.about}
@@ -135,13 +135,13 @@ const ProfileUserEdit = () => {
                     <button
                       type="button"
                       onClick={handleCancel}
-                      className="flex justify-center items-center py-2.5 w-full text-xs font-semibold text-red-600 bg-white rounded-md border border-solid border-red-300 cursor-pointer hover:bg-red-500 hover:text-white transition-all"
+                      className="flex justify-center items-center py-2.5 w-full text-xs md:text-sm font-semibold text-red-600 bg-white rounded-md border border-solid border-red-300 cursor-pointer hover:bg-red-500 hover:text-white transition-all"
                     >
                       Cancel
                     </button>
                     <button
                       type="submit"
-                      className="flex justify-center items-center py-2.5 w-full text-xs font-semibold text-blue-800 bg-white rounded-md border border-solid border-blue-300 cursor-pointer hover:bg-blue-600 hover:text-white transition-all"
+                      className="flex justify-center items-center py-2.5 w-full text-xs md:text-sm font-semibold text-blue-800 bg-white rounded-md border border-solid border-blue-300 cursor-pointer hover:bg-blue-600 hover:text-white transition-all"
                     >
                       Save
                     </button>
