@@ -9,6 +9,7 @@ const CourseRelationship = require("../model/CourseRelationship");
 const Skills = require("../model/Skills");
 const SkillsRelationship = require("../model/SkillsRelationship");
 const Experience = require("../model/Experience");
+const { Op } = require('sequelize');
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -27,6 +28,7 @@ const postUser = async (req, res) => {
     const newMentee = await Mentee.create({
       fullName,
       email,
+      phoneNumber ,
       password: hashedPassword,
       role: "MENTEE",
     });
@@ -203,12 +205,212 @@ const editUserAccount = async (req, res) => {
   }
 };
 
+const beMentor = async (req, res) => {
+  try {
+    const authorization = req.headers.authorization;
+    let token;
+    if (authorization && authorization.startsWith("Bearer ")) {
+      token = authorization.substring(7);
+    } else {
+      return res.status(403).json({
+        status: "Error",
+        message: "Anda harus login",
+      });
+    }
+
+    const decoded = jwt.verify(token, key);
+    const currentUser = await Mentee.findOne({ where: { id: decoded.userId } });
+    if (!currentUser) {
+      return res.status(404).json({
+        status: "Error",
+        message: `Pengguna dengan id ${decoded.userId} tidak ditemukan`,
+      });
+    }
+
+    const { lokasi, rating, experiences } = req.body;
+
+    if (!experiences || !Array.isArray(experiences)) {
+      return res.status(400).json({
+        status: "Error",
+        message: "Experiences must be provided as an array",
+      });
+    }
+
+    // Create a new mentor entry
+    const newMentor = await Mentor.create({
+      lokasi,
+      rating,
+      menteeId: currentUser.id,
+    });
+
+    // Create experience entries
+    const experiencesData = experiences.map(exp => ({
+      year: exp.year,
+      desc: exp.desc,
+      mentorId: newMentor.id,
+    }));
+
+    await Experience.bulkCreate(experiencesData);
+
+    // Update the mentee's role to MENTOR
+    await currentUser.update({ role: "MENTOR" });
+
+    res.status(201).json({
+      status: "Success",
+      message: "Berhasil menjadi mentor!",
+      mentor: newMentor,
+      experiences: experiencesData,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      status: "Error",
+      message: error.message,
+    });
+  }
+};
+
+const addExperience = async (req, res) => {
+  try {
+    const authorization = req.headers.authorization;
+    let token;
+    if (authorization && authorization.startsWith("Bearer ")) {
+      token = authorization.substring(7);
+    } else {
+      return res.status(403).json({
+        status: "Error",
+        message: "Anda harus login",
+      });
+    }
+
+    const decoded = jwt.verify(token, key);
+    const currentUser = await Mentee.findOne({ where: { id: decoded.userId } });
+
+    if (!currentUser) {
+      return res.status(404).json({
+        status: "Error",
+        message: `Pengguna dengan id ${decoded.userId} tidak ditemukan`,
+      });
+    }
+
+    if (currentUser.role !== "MENTOR") {
+      return res.status(403).json({
+        status: "Error",
+        message: "Anda bukan seorang mentor",
+      });
+    }
+
+    const { experiences } = req.body;
+
+    if (!experiences || !Array.isArray(experiences)) {
+      return res.status(400).json({
+        status: "Error",
+        message: "Experiences must be provided as an array",
+      });
+    }
+
+    // Find the mentor entry
+    const mentor = await Mentor.findOne({ where: { menteeId: currentUser.id } });
+
+    if (!mentor) {
+      return res.status(404).json({
+        status: "Error",
+        message: "Mentor profile not found",
+      });
+    }
+
+    // Create experience entries
+    const experiencesData = experiences.map(exp => ({
+      year: exp.year,
+      desc: exp.desc,
+      mentorId: mentor.id,
+    }));
+
+    await Experience.bulkCreate(experiencesData);
+
+    res.status(201).json({
+      status: "Success",
+      message: "Experiences added successfully!",
+      experiences: experiencesData,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      status: "Error",
+      message: error.message,
+    });
+  }
+};
+
+// const getMentor
+const searchMentor = async (req, res) => {
+  try {
+    const { fullName } = req.body;
+
+    // Ensure that fullName is provided
+    if (!fullName) {
+      return res.status(400).json({
+        status: 'Error',
+        message: 'Full name is required to search for a mentor.'
+      });
+    }
+
+    // Find all mentees whose name matches the search query and ensure they are mentors
+    const mentees = await Mentee.findAll({
+      where: {
+        fullName: {
+          [Op.like]: `%${fullName}%`
+        },
+        role: 'MENTOR'  // Ensure we are only getting mentors
+      },
+      include: [{
+        model: Mentor,
+        required: true
+      }]
+    });
+
+    // Debugging: log the mentees found
+    console.log('Mentees found:', mentees);
+
+    if (mentees.length === 0) {
+      return res.status(404).json({
+        status: 'Error',
+        message: 'No mentors found with the given mentee name.'
+      });
+    }
+
+    const mentors = mentees.map(mentee => ({
+      mentorId: mentee.mentors[0].id,
+      menteeId: mentee.id,
+      fullName: mentee.fullName,
+      email: mentee.email,
+      lokasi: mentee.mentors[0].lokasi,
+      rating: mentee.mentors[0].rating,
+    }));
+
+    res.status(200).json({
+      status: 'Success',
+      mentors
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      status: 'Error',
+      message: error.message
+    });
+  }
+};
+
 module.exports = {
   postUser,
   loginHandler,
   getUserProfile,
   editUserAccount,
+  beMentor,
+  searchMentor,
+  addExperience
 };
+
 
 /*
 const router = createBrowserRouter([

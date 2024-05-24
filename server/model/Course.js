@@ -8,7 +8,8 @@ const Course = sequelize.define("course", {
     autoIncrement: true,
   },
   nama_course: {
-    type: Sequelize.STRING,
+    type: Sequelize.ENUM,
+    values: ['WEB DEV', 'MOBILE DEV', 'PROJECT MANAGER', 'UX DESIGN'],
     allowNull: false,
   }
 });

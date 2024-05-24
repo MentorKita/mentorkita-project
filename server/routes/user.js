@@ -6,6 +6,9 @@ const {
   loginHandler,
   getUserProfile,
   editUserAccount,
+  searchMentor,
+  beMentor,
+  addExperience
 } = require("../controller/user");
 
 // Routes for Mentee
@@ -21,6 +24,17 @@ router.put(
   upload.single("profilePict"),
   editUserAccount
 );
+
+//Routes for mentor
+router.post ("/users/BecomeAMentor", beMentor);
+
+router.get ("/users/searchMentor", searchMentor);
+
+router.post ("/users/addExperience", addExperience);
+
+// router.get ("/users/profileMentor", );
+
+// router,get ("/users/mentorDetail", );
 
 module.exports = router;
 
