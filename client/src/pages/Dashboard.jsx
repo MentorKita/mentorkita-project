@@ -27,21 +27,63 @@ const Dashboard = () =>{
             </section>
             
         </div>
-        <div className="w-full h-[300px] bg-blue-200 lg:h-[659px]">
+        <div className="w-full h-[375px] bg-blue-200 lg:h-[659px]">
             <p className="font-bold text-[20px] text-center mt-[10px] pt-[20px] lg:text-[40px] lg:leading-[60px] lg:pt-[40px]">Top Rated Mentors</p>
             <section className="overflow-x-auto">
                 <div className="w-[800px] py-[20px] px-[20px] flex flex-row lg:w-[1550px]">
-                    <div className="w-24 h-24 rounded-2xl bg-white mx-[10px] shadow-xl lg:w-[281px] lg:h-[277px]"></div>
-                    <div className="w-24 h-24 rounded-2xl bg-white mx-[10px] shadow-xl lg:w-[281px] lg:h-[277px]"></div>
-                    <div className="w-24 h-24 rounded-2xl bg-white mx-[10px] shadow-xl lg:w-[281px] lg:h-[277px]"></div>
-                    <div className="w-24 h-24 rounded-2xl bg-white mx-[10px] shadow-xl lg:w-[281px] lg:h-[277px]"></div>
-                    <div className="w-24 h-24 rounded-2xl bg-white mx-[10px] shadow-xl lg:w-[281px] lg:h-[277px]"></div>
+                    
+                    <div className="w-[143px] h-[143px] rounded-2xl bg-white mx-[10px] shadow-xl lg:w-[281px] lg:h-[277px]">
+                        <figure className="flex flex-row pt-4 pl-2 mb-2">
+                            <a href="#"> <img className="w-[69px] h-[69px] bg-gray-300 rounded-full md:w-[139px] md:h-[139px]" src="https://cdn1.iconfinder.com/data/icons/basic-ui-set-v5-user-outline/64/Account_profile_user_avatar_rounded-512.png" alt="" /></a>
+                            <p className="text-[13px] font-semibold text-[#081C87] pt-3 pl-1 md:text-[40px] md:mt-8"><span className="text-[32px] md:text-[40px]">5</span>/5</p>
+                            <img loading="lazy" src="../svg/rating-star.svg" alt="Star icon" className="pt-4 md:w-[39px] md:h-[39px] md:mt-12 shrink-0 aspect-square fill-yellow-400 w-4"/>
+                        </figure>
+                        <p className="text-[13px] font-semibold pl-3 md:text-[16px]">Alex Freshman</p>
+                        <p className="text-[10px] pl-3 font-normal md:text-[16px]">Head of Phaselleus Vitae</p>
+                    </div>
+                    <div className="w-[143px] h-[143px] rounded-2xl bg-white mx-[10px] shadow-xl lg:w-[281px] lg:h-[277px]">
+                        <figure className="flex flex-row pt-4 pl-2 mb-2">
+                            <a href="#"> <img className="w-[69px] h-[69px] bg-gray-300 rounded-full md:w-[139px] md:h-[139px]" src="https://cdn1.iconfinder.com/data/icons/basic-ui-set-v5-user-outline/64/Account_profile_user_avatar_rounded-512.png" alt="" /></a>
+                            <p className="text-[13px] font-semibold text-[#081C87] pt-3 pl-1 md:text-[40px] md:mt-8"><span className="text-[32px] md:text-[40px]">5</span>/5</p>
+                            <img loading="lazy" src="../svg/rating-star.svg" alt="Star icon" className="pt-4 md:w-[39px] md:h-[39px] md:mt-12 shrink-0 aspect-square fill-yellow-400 w-4"/>
+                        </figure>
+                        <p className="text-[13px] font-semibold pl-3 md:text-[16px]">Alex Freshman</p>
+                        <p className="text-[10px] pl-3 font-normal md:text-[16px]">Head of Phaselleus Vitae</p>
+                    </div>
+                    <div className="w-[143px] h-[143px] rounded-2xl bg-white mx-[10px] shadow-xl lg:w-[281px] lg:h-[277px]">
+                        <figure className="flex flex-row pt-4 pl-2 mb-2">
+                            <a href="#"> <img className="w-[69px] h-[69px] bg-gray-300 rounded-full md:w-[139px] md:h-[139px]" src="https://cdn1.iconfinder.com/data/icons/basic-ui-set-v5-user-outline/64/Account_profile_user_avatar_rounded-512.png" alt="" /></a>
+                            <p className="text-[13px] font-semibold text-[#081C87] pt-3 pl-1 md:text-[40px] md:mt-8"><span className="text-[32px] md:text-[40px]">5</span>/5</p>
+                            <img loading="lazy" src="../svg/rating-star.svg" alt="Star icon" className="pt-4 md:w-[39px] md:h-[39px] md:mt-12 shrink-0 aspect-square fill-yellow-400 w-4"/>
+                        </figure>
+                        <p className="text-[13px] font-semibold pl-3 md:text-[16px]">Alex Freshman</p>
+                        <p className="text-[10px] pl-3 font-normal md:text-[16px]">Head of Phaselleus Vitae</p>
+                    </div>
+                    <div className="w-[143px] h-[143px] rounded-2xl bg-white mx-[10px] shadow-xl lg:w-[281px] lg:h-[277px]">
+                        <figure className="flex flex-row pt-4 pl-2 mb-2">
+                            <a href="#"> <img className="w-[69px] h-[69px] bg-gray-300 rounded-full md:w-[139px] md:h-[139px]" src="https://cdn1.iconfinder.com/data/icons/basic-ui-set-v5-user-outline/64/Account_profile_user_avatar_rounded-512.png" alt="" /></a>
+                            <p className="text-[13px] font-semibold text-[#081C87] pt-3 pl-1 md:text-[40px] md:mt-8"><span className="text-[32px] md:text-[40px]">5</span>/5</p>
+                            <img loading="lazy" src="../svg/rating-star.svg" alt="Star icon" className="pt-4 md:w-[39px] md:h-[39px] md:mt-12 shrink-0 aspect-square fill-yellow-400 w-4"/>
+                        </figure>
+                        <p className="text-[13px] font-semibold pl-3 md:text-[16px]">Alex Freshman</p>
+                        <p className="text-[10px] pl-3 font-normal md:text-[16px]">Head of Phaselleus Vitae</p>
+                    </div>
+                    <div className="w-[143px] h-[143px] rounded-2xl bg-white mx-[10px] shadow-xl lg:w-[281px] lg:h-[277px]">
+                        <figure className="flex flex-row pt-4 pl-2 mb-2">
+                            <a href="#"> <img className="w-[69px] h-[69px] bg-gray-300 rounded-full md:w-[139px] md:h-[139px]" src="https://cdn1.iconfinder.com/data/icons/basic-ui-set-v5-user-outline/64/Account_profile_user_avatar_rounded-512.png" alt="" /></a>
+                            <p className="text-[13px] font-semibold text-[#081C87] pt-3 pl-1 md:text-[40px] md:mt-8"><span className="text-[32px] md:text-[40px]">5</span>/5</p>
+                            <img loading="lazy" src="../svg/rating-star.svg" alt="Star icon" className="pt-4 md:w-[39px] md:h-[39px] md:mt-12 shrink-0 aspect-square fill-yellow-400 w-4"/>
+                        </figure>
+                        <p className="text-[13px] font-semibold pl-3 md:text-[16px]">Alex Freshman</p>
+                        <p className="text-[10px] pl-3 font-normal md:text-[16px]">Head of Phaselleus Vitae</p>
+                    </div>
+                   
                 </div>
             </section>
             <section>
                 <p className="text-[19px] font-bold text-center my-[10px] lg:text-[40px] lg:leading-[60px]">Be one of them!</p>
                 <div className="w-full relative">
-                    <p className="mx-auto text-[14px] font-semibold text-center"><GradientDashButton >Begin as a Mentor</GradientDashButton></p>
+                    <p className="mx-auto text-[14px] font-semibold text-center"><GradientDashButton > <Link to="/becomeAMentor">Begin as a Mentor</Link></GradientDashButton></p>
                 </div>
             </section>
         </div>
