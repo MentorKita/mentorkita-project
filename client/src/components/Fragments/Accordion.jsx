@@ -10,7 +10,7 @@ const Accordion = ({title, content}) => {
           onClick={() => setAccordionOpen(!accordionOpen)}
           className="flex justify-between w-full items-center"
         >
-          <div className="font-medium">{title}</div>
+          <div className="font-medium text-sm md:text-lg">{title}</div>
           <img
             src="../svg/arrow.svg"
             alt=""

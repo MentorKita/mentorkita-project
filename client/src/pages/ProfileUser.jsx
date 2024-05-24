@@ -21,8 +21,10 @@ function Divider() {
 function Stat({ value, label }) {
   return (
     <div className="flex flex-col justify-center">
-      <div className="self-center text-xl font-semibold">{value}</div>
-      <div className="text-xs text-center">{label}</div>
+      <div className="self-center text-xl md:text-2xl font-semibold">
+        {value}
+      </div>
+      <div className="text-xs md:text-sm text-center">{label}</div>
     </div>
   );
 }
@@ -45,7 +47,9 @@ const ProfileUser = () => {
                   alt="Profile Photo"
                   className="w-28"
                 />
-                <div className="text-center font-medium">My Profile</div>
+                <div className="text-center font-medium text-base md:text-lg">
+                  My Profile
+                </div>
                 <EditBtn link={"/profileUser/edit/" + 1} />
                 <div className="flex gap-4 items-center">
                   {stats.map((stat, index) => (
@@ -59,26 +63,14 @@ const ProfileUser = () => {
                   <LogoutBtn />
                 </div>
               </section>
-              <section className="md:w-3/5 flex flex-col gap-3">
-                <div className="flex flex-col gap-2 px-4 py-2 mt-3 text-xs rounded-md border border-solid border-gray-200">
-                  <ProfileInfo
-                    label={"Name"}
-                    value={mentor.name}
-                  />
-                  <ProfileInfo
-                    label={"Email"}
-                    value={mentor.email}
-                  />
-                  <ProfileInfo
-                    label={"Phone Number"}
-                    value={mentor.phone}
-                  />
+              <section className="md:w-3/5 flex flex-col gap-3 text-xs md:text-sm">
+                <div className="flex flex-col gap-2 px-4 py-2 mt-3 rounded-md border border-solid border-gray-200">
+                  <ProfileInfo label={"Name"} value={mentor.name} />
+                  <ProfileInfo label={"Email"} value={mentor.email} />
+                  <ProfileInfo label={"Phone Number"} value={mentor.phone} />
                 </div>
-                <div className="flex flex-col gap-2 px-4 py-2 text-xs rounded-md border border-solid border-gray-200">
-                  <ProfileInfo
-                    label={"About Me"}
-                    value={mentor.about}
-                  />
+                <div className="flex flex-col gap-2 px-4 py-2 text-xs md:text-sm rounded-md border border-solid border-gray-200">
+                  <ProfileInfo label={"About Me"} value={mentor.about} />
                 </div>
                 <div className="md:hidden">
                   <LogoutBtn />
@@ -87,10 +79,10 @@ const ProfileUser = () => {
             </div>
             <section className="md:w-1/3">
               <div className="flex justify-between mt-7 w-full font-medium">
-                <div className="text-base font-semibold">My Course</div>
+                <div className="text-base md:text-xl font-semibold">My Course</div>
                 <a
-                  href="#"
-                  className="text-sm text-sky-500 cursor-pointer hover:text-sky-300 transition-all"
+                  href="/courseUser"
+                  className="text-sm md:text-base text-sky-500 cursor-pointer hover:text-sky-300 transition-all"
                 >
                   Show more
                 </a>

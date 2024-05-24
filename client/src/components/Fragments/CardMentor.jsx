@@ -19,8 +19,8 @@ const CardMentor = ({ mentor }) => {
         />
         <div className="flex flex-col py-1 md:justify-between">
           <div className="flex flex-col">
-            <div className="text-base font-semibold">{mentor.name}</div>
-            <div className="text-xs font-normal">{mentor.work}</div>
+            <div className="text-base md:text-lg font-semibold">{mentor.name}</div>
+            <div className="text-xs md:text-sm font-normal">{mentor.work}</div>
           </div>
           <div className="hidden md:block">
             <RatingBadge2 rating={mentor.rating} reviewers={mentor.reviewers} />
@@ -31,7 +31,7 @@ const CardMentor = ({ mentor }) => {
           />
         </div>
       </div>
-      <div className="mt-3 text-justify text-black font-normal text-[8px] md:text-xs leading-3">
+      <div className="mt-3 text-justify text-black font-normal text-[8px] md:text-sm leading-3">
         {mentor.about}
       </div>
       <DetailBtn />
