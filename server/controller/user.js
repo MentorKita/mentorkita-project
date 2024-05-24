@@ -22,13 +22,13 @@ const { post } = require("../routes/user");
 const postUser = async (req, res) => {
   try {
     console.log("berhasilPostuser");
-    const { fullName, email, password, phoneNumber } = req.body;
+    const { fullName, email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newMentee = await Mentee.create({
       fullName,
       email,
-      phoneNumber ,
+      // phoneNumber ,
       password: hashedPassword,
       role: "MENTEE",
     });
@@ -227,7 +227,14 @@ const beMentor = async (req, res) => {
       });
     }
 
-    const { lokasi, rating, experiences } = req.body;
+    const { fullName, phoneNumber, email, about, job, lokasi, rating, experiences } = req.body;
+
+    if (!fullName || !phoneNumber || !email || !about || !job || !lokasi || !rating || !experiences) {
+      return res.status(400).json({
+        status: "Error",
+        message: "All fields must be provided",
+      });
+    }
 
     if (!experiences || !Array.isArray(experiences)) {
       return res.status(400).json({
@@ -238,6 +245,11 @@ const beMentor = async (req, res) => {
 
     // Create a new mentor entry
     const newMentor = await Mentor.create({
+      fullName,
+      phoneNumber,
+      email,
+      about,
+      job,
       lokasi,
       rating,
       menteeId: currentUser.id,
@@ -382,10 +394,12 @@ const searchMentor = async (req, res) => {
     const mentors = mentees.map(mentee => ({
       mentorId: mentee.mentors[0].id,
       menteeId: mentee.id,
-      fullName: mentee.fullName,
-      email: mentee.email,
-      lokasi: mentee.mentors[0].lokasi,
-      rating: mentee.mentors[0].rating,
+      fullName: mentee.fullName,//
+      // email: mentee.email,
+      about: mentee.about,//
+      job: mentee.mentors[0].job,//
+      // lokasi: mentee.mentors[0].lokasi,
+      rating: mentee.mentors[0].rating,//
     }));
 
     res.status(200).json({

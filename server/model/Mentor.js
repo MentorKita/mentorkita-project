@@ -7,6 +7,9 @@ const Mentor = sequelize.define("mentor", {
     primaryKey: true,
     autoIncrement: true,
   },
+  job: {
+    type: Sequelize.STRING,
+  },
   lokasi: {
     type: Sequelize.STRING,
   },
