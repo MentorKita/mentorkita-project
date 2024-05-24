@@ -4,7 +4,15 @@ import StarRating from "../Elements/starRating";
 import MentorReview from "./MentorReview";
 import mentors from "../../data/mentors";
 
-const MyMentorCard = ({ name, status, photo, rating, course, ratingBadge, courseUser }) => {
+const MyMentorCard = ({
+  name,
+  status,
+  photo,
+  rating,
+  course,
+  ratingBadge,
+  courseUser,
+}) => {
   const ratingInNumber = Number(rating);
   const [isReviewVisible, setIsReviewVisible] = useState(false);
 

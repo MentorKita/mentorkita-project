@@ -92,8 +92,8 @@ const MentorDetail = () => {
                     {mentor.location}
                   </p>
                 </div>
-                {/* location */}
-                <div className="flex gap-1 items-center mt-2">
+                {/* save/bookmark mentor */}
+                {/* <div className="flex gap-1 items-center mt-2">
                   <img
                     src={
                       isSaved
@@ -110,7 +110,7 @@ const MentorDetail = () => {
                   <p className="text-sm font-semibold text-textColor ps-[7px] lg:text-lg">
                     Save
                   </p>
-                </div>
+                </div> */}
               </div>
               {/* SKILLS */}
               <div className="px-6 md:px-0 md:mt-8">
@@ -142,11 +142,30 @@ const MentorDetail = () => {
             {/* EXPERIENCES */}
             <section className="px-6 mt-10">
               <TitleH2 title="Experiences" />
-              <p className="font-light text-xs pr-4 text-textColor md:pr-0 lg:text-base">
-                {mentor.experiences}
-              </p>
+              {mentor.experiences.map((experience, index) => {
+                // setiap dapat "-" maka split menjadi value array baru
+                const descriptionSplit = experience.description.split("-");
+                return (
+                  <div key={index}>
+                    <h1 className="font-bold text-xs pr-4 text-textColor md:pr-0 ">
+                      {experience.title}
+                    </h1>
+                    <div className=" ps-6">
+                      <ol className="font-light text-[10px] text-justify text-textColor md:pr-0 lg:text-base ">
+                        {descriptionSplit.map(
+                          (item, i) =>
+                            item.trim() !== "" && (
+                              <li className="list-disc" key={i}>
+                                {item.trim()}
+                              </li>
+                            )
+                        )}
+                      </ol>
+                    </div>
+                  </div>
+                );
+              })}
             </section>
-            {/* <ExperienceSection experiences={mentor.experiences} /> */}
 
             {/* MENTEE OVERVIEW */}
             <section className="px-6 mt-12 mb-8 lg:flex lg:flex-col lg:items-center lg:mb-14">
@@ -170,7 +189,6 @@ const MentorDetail = () => {
         <Footer />
       </footer>
     </div>
-    // test koooo
   );
 };
 
