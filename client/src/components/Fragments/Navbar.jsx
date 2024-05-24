@@ -15,14 +15,14 @@ function Navbar() {
         <p className="text-black py-[15px] px-[15px] mr-auto lg:px-0 lg:z-30 lg:pt-[20px] lg:mr-[245px]">
           <img className="size-5 lg:w-[32px] lg:h-[24px] lg:border lg:border-black lg:ml-[25px]" src="../../../public/images/Logo.png" alt="Logo" />
         </p>
-        <ul className="flex md:flex-row lg:flex-row border border-black lg:w-[700px] lg:ml-[25px]">
-          <li className="hidden md:block lg:block lg:text-white lg:font-semibold lg:w-[200px] lg:text-[20px] lg:leading-[30px] lg:pt-[15px] lg:text-center md:text-white md:font-semibold md:w-[150px] md:text-[20px] md:leading-[30px] md:pt-[15px] md:text-center">
+        <ul className="flex md:flex-row lg:flex-row lg:w-[700px] lg:ml-[25px]">
+          <li className="hover:text-[#081C87] hover:border-b-4 hover:border-[#081C87] border-b hidden md:block lg:block lg:text-white lg:font-semibold lg:w-[200px] lg:text-[20px] lg:leading-[30px] lg:pt-[15px] lg:text-center md:text-white md:font-semibold md:w-[150px] md:text-[20px] md:leading-[30px] md:pt-[15px] md:text-center">
             <Link to="/"> Dashboard </Link>
           </li>
-          <li className="hidden md:block lg:block lg:text-white lg:font-semibold lg:w-[200px] lg:text-[20px] lg:leading-[30px] lg:pt-[15px] lg:text-center md:text-white md:font-semibold md:w-[150px] md:text-[20px] md:leading-[30px] md:pt-[15px] md:text-center">
+          <li className="hover:text-[#081C87] hover:border-b-4 hover:border-[#081C87] border-b hidden md:block lg:block lg:text-white lg:font-semibold lg:w-[200px] lg:text-[20px] lg:leading-[30px] lg:pt-[15px] lg:text-center md:text-white md:font-semibold md:w-[150px] md:text-[20px] md:leading-[30px] md:pt-[15px] md:text-center">
             <Link to="/searchMentor"> Search Mentors </Link>
           </li>
-          <li className="hidden md:block lg:block lg:text-white lg:font-semibold lg:w-[200px] lg:text-[20px] lg:leading-[30px] lg:pt-[15px] lg:text-center md:text-white md:font-semibold md:w-[150px] md:text-[20px] md:leading-[30px] md:pt-[15px] md:text-center">
+          <li className="hover:text-[#081C87] hover:border-b-4 hover:border-[#081C87] border-b hidden md:block lg:block lg:text-white lg:font-semibold lg:w-[200px] lg:text-[20px] lg:leading-[30px] lg:pt-[15px] lg:text-center md:text-white md:font-semibold md:w-[150px] md:text-[20px] md:leading-[30px] md:pt-[15px] md:text-center">
             <Link to="/becomeAMentor"> Be a Mentor </Link>
           </li>
           {isLoggedIn ? (  // Render kondisional berdasarkan state isLoggedIn
@@ -30,7 +30,7 @@ function Navbar() {
               <img className="w-[50px] h-[50px] bg-gray-300 rounded-full" src="https://cdn1.iconfinder.com/data/icons/basic-ui-set-v5-user-outline/64/Account_profile_user_avatar_rounded-512.png" alt="" />
             </li>
           ) : (
-            <li className="hidden md:block lg:block lg:text-white lg:font-semibold lg:w-[150px] lg:text-[20px] lg:leading-[30px] lg:pt-[15px] lg:text-center md:text-white md:font-semibold md:w-[100px] md:text-[20px] md:leading-[30px] md:pt-[15px] md:text-center">
+            <li className="hover:text-[#081C87] hover:border-b-4 hover:border-[#081C87] border-b hidden md:block lg:block lg:text-white lg:font-semibold lg:w-[150px] lg:text-[20px] lg:leading-[30px] lg:pt-[15px] lg:text-center md:text-white md:font-semibold md:w-[100px] md:text-[20px] md:leading-[30px] md:pt-[15px] md:text-center">
               <Link to="/loginUser"> Log In</Link>
             </li>
           )}
@@ -58,9 +58,16 @@ function Navbar() {
             <li className="text-black text-base px-[25px] py-[10px] font-semibold">
               <Link to="/becomeAMentor"> Be a Mentor </Link>
             </li>
+            {isLoggedIn ? (  // Render kondisional berdasarkan state isLoggedIn
+            <li className="text-[#081C87] text-base px-[25px] py-[10px] font-semibold">
+            <Link to="/loginUser"> Log In</Link>
+            </li>
+            ) : (
             <li className="text-[#081C87] text-base px-[25px] py-[10px] font-semibold">
               <Link to="/loginUser"> Log In</Link>
             </li>
+            )}
+            
           </ul>
         </nav>
       </div>
