@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const GradientButton = ({ children }) => {
   
   return (
-    <a href="#" target="_blank">
+    <div>
       <button
         className="text-base p-1 py-[7px] rounded-[10px]"
         style={{
@@ -18,7 +18,7 @@ const GradientButton = ({ children }) => {
           {children}
         </span>
       </button>
-    </a>
+    </div>
   );
 };
 

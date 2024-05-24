@@ -9,6 +9,7 @@ import mentors from "../data/mentors";
 import { mentees } from "../data/mentees";
 import GradientButton from "../components/Elements/Button/gradienButton";
 import SkillsSection from "../components/Fragments/SkillsSection";
+import ContactCard from "../components/Fragments/ContactCard";
 
 const MentorDetail = () => {
   let { id } = useParams();
@@ -16,12 +17,17 @@ const MentorDetail = () => {
   const mentor = mentors.find((mentor) => mentor.id === parseInt(id));
 
   const [isSaved, setIsSaved] = useState(false);
+  const [isContactVisible, setIsContactVisible] = useState(false);
+
+  const toggleContactVisibility = () => {
+    setIsContactVisible(!isContactVisible);
+  };
   const onclick = () => {
     setIsSaved(!isSaved); // Toggle nilai state isSaved saat tombol diklik
   };
 
   return (
-    <div>
+    <div >
       <Navbar />
       <div className="flex flex-col font-poppins min-h-screen">
         <div className="flex-grow bg-white">
@@ -59,7 +65,10 @@ const MentorDetail = () => {
             {/* BUTTON CONTACT NOW */}
             <section className="flex text-right mt-4 lg:mt-8 ">
               <div className="w-[52%] md:w-[72%] lg:w-[98%] "></div>
-              <div className="w-full flex justify-start pl-4 ">
+              <div
+                className="w-full flex justify-start pl-4 "
+                onClick={toggleContactVisibility}
+              >
                 <GradientButton>Contact Now</GradientButton>
               </div>
             </section>
@@ -174,14 +183,17 @@ const MentorDetail = () => {
                 <CardMentee key={mentee.id} mentee={mentee} />
               ))}
             </section>
-            {/* <section className="my-10">
-          <ContactCard
-            phone={mentor.phone}
-            location={mentor.location}
-            email={mentor.email}
-            courses={mentor.courses}
-          />
-        </section> */}
+            <section className="my-10">
+              {isContactVisible && (
+                <ContactCard
+                  phone={mentor.phone}
+                  location={mentor.location}
+                  email={mentor.email}
+                  courses={mentor.courses}
+                  onClose={() => setIsContactVisible(false)}
+                />
+              )}
+            </section>
           </main>
         </div>
       </div>
