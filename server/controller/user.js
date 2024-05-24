@@ -219,7 +219,7 @@ const beMentor = async (req, res) => {
     }
 
     const decoded = jwt.verify(token, key);
-    const currentUser = await Mentee.findOne({ where: { id: decoded.userId } });
+    let currentUser = await Mentee.findOne({ where: { id: decoded.userId } });
     if (!currentUser) {
       return res.status(404).json({
         status: "Error",
@@ -242,6 +242,14 @@ const beMentor = async (req, res) => {
         message: "Experiences must be provided as an array",
       });
     }
+
+    // Update current user's information
+    currentUser = await currentUser.update({
+      fullName,
+      phoneNumber,
+      email,
+      about,
+    });
 
     // Create a new mentor entry
     const newMentor = await Mentor.create({
@@ -281,6 +289,7 @@ const beMentor = async (req, res) => {
     });
   }
 };
+
 
 const addExperience = async (req, res) => {
   try {
