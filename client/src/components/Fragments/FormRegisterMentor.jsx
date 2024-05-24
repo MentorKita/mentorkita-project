@@ -8,6 +8,7 @@ import skills from "../../data/skills";
 import courses from "../../data/courses";
 import DarkBlueButton from "../Elements/Button/darkBlueButton";
 import TitleH2 from "../Elements/titleH2";
+import SubmissionSuccess from "./SubmissionSuccess";
 
 const FormRegisterMentor = () => {
   const [phone, setPhone] = useState("");
@@ -16,6 +17,29 @@ const FormRegisterMentor = () => {
   const [selectedCourses, setSelectedCourses] = useState([]);
   const [emailError, setEmailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
+
+  const [submitted, setSubmitted] = useState(false);
+  const [reviewText, setReviewText] = useState("");
+
+  const handleFormSubmit = (e) => {
+    event.preventDefault();
+    if (validateForm()) {
+      // Your form submission logic here
+      console.log("Form submitted!");
+      console.log("Phone:", phone);
+      console.log("Email:", email);
+      console.log("Selected Skills:", selectedSkills);
+      console.log("Selected Courses:", selectedCourses);
+    }
+    console.log("Succes Registration", reviewText);
+
+    setSubmitted(true);
+    setReviewText("");
+  };
+  const handleSubmissionSuccessClose = () => {
+    setSubmitted(false);
+    // onClose();
+  };
 
   const handleSkillChange = (event) => {
     const skillValue = event.target.value;
@@ -71,18 +95,6 @@ const FormRegisterMentor = () => {
     const { value } = event.target;
     setEmail(value); // Update state input email
     validateForm(); // Panggil fungsi validasi secara real-time
-  };
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    if (validateForm()) {
-      // Your form submission logic here
-      console.log("Form submitted!");
-      console.log("Phone:", phone);
-      console.log("Email:", email);
-      console.log("Selected Skills:", selectedSkills);
-      console.log("Selected Courses:", selectedCourses);
-    }
   };
 
   return (
@@ -224,9 +236,20 @@ const FormRegisterMentor = () => {
           </DarkBlueButton>
         </div> */}
       </section>
-      <DarkBlueButton type="submit" customClass="py-3 px-2 w-full">
-        Register
-      </DarkBlueButton>
+      {!submitted ? (
+        <button type="submit" className="w-full">
+          <DarkBlueButton type="submit" customClass="py-3 px-2 w-full">
+            Register
+          </DarkBlueButton>
+        </button>
+      ) : (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-25 backdrop-blur-sm font-poppins">
+          <SubmissionSuccess
+            onClose={handleSubmissionSuccessClose}
+            statusChecked={1}
+          />
+        </div>
+      )}
     </form>
   );
 };
