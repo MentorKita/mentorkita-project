@@ -21,10 +21,10 @@ const LoginUser = () =>{
                 </div>
                 <form action="">
                     <div className="mt-[30px]">
-                        <InputLogin placeholder="email " />
+                        <InputLogin type="email" placeholder="email " />
                     </div>
                     <div className="mt-[25px]">
-                        <InputLogin placeholder="password" />
+                        <InputLogin type="password" placeholder="password" />
                     </div>
                
                     <p className="text-[#081C87] text-[16px] ml-[225px] my-[15px] lg:ml-[475px]">Lupa password?</p>
