@@ -9,7 +9,7 @@ const CourseRelationship = require("../model/CourseRelationship");
 const Skills = require("../model/Skills");
 const SkillsRelationship = require("../model/SkillsRelationship");
 const Experience = require("../model/Experience");
-const { Op } = require('sequelize');
+const { Op } = require("sequelize");
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -28,7 +28,6 @@ const postUser = async (req, res) => {
     const newMentee = await Mentee.create({
       fullName,
       email,
-      // phoneNumber ,
       password: hashedPassword,
       role: "MENTEE",
     });
@@ -51,6 +50,8 @@ const postUser = async (req, res) => {
   }
 };
 
+module.exports = { postUser };
+
 // Login
 const loginHandler = async (req, res) => {
   try {
@@ -62,6 +63,10 @@ const loginHandler = async (req, res) => {
         status: "Error",
         message: "Email atau password salah",
       });
+    } else {
+      console.log(
+        `Login attempt with email: ${email} | pw: ${password} |> successful`
+      );
     }
 
     const checkPassword = await bcrypt.compare(password, currentUser.password);
@@ -184,7 +189,7 @@ const editUserAccount = async (req, res) => {
       },
       { where: { id: decoded.userId } }
     );
-    
+
     res.status(200).json({
       status: "Success",
       message: "Data pengguna berhasil diubah",
@@ -227,9 +232,27 @@ const beMentor = async (req, res) => {
       });
     }
 
-    const { fullName, phoneNumber, email, about, job, lokasi, rating, experiences } = req.body;
+    const {
+      fullName,
+      phoneNumber,
+      email,
+      about,
+      job,
+      lokasi,
+      rating,
+      experiences,
+    } = req.body;
 
-    if (!fullName || !phoneNumber || !email || !about || !job || !lokasi || !rating || !experiences) {
+    if (
+      !fullName ||
+      !phoneNumber ||
+      !email ||
+      !about ||
+      !job ||
+      !lokasi ||
+      !rating ||
+      !experiences
+    ) {
       return res.status(400).json({
         status: "Error",
         message: "All fields must be provided",
@@ -264,7 +287,7 @@ const beMentor = async (req, res) => {
     });
 
     // Create experience entries
-    const experiencesData = experiences.map(exp => ({
+    const experiencesData = experiences.map((exp) => ({
       year: exp.year,
       desc: exp.desc,
       mentorId: newMentor.id,
@@ -289,7 +312,6 @@ const beMentor = async (req, res) => {
     });
   }
 };
-
 
 const addExperience = async (req, res) => {
   try {
@@ -331,7 +353,9 @@ const addExperience = async (req, res) => {
     }
 
     // Find the mentor entry
-    const mentor = await Mentor.findOne({ where: { menteeId: currentUser.id } });
+    const mentor = await Mentor.findOne({
+      where: { menteeId: currentUser.id },
+    });
 
     if (!mentor) {
       return res.status(404).json({
@@ -341,7 +365,7 @@ const addExperience = async (req, res) => {
     }
 
     // Create experience entries
-    const experiencesData = experiences.map(exp => ({
+    const experiencesData = experiences.map((exp) => ({
       year: exp.year,
       desc: exp.desc,
       mentorId: mentor.id,
@@ -371,8 +395,8 @@ const searchMentor = async (req, res) => {
     // Ensure that fullName is provided
     if (!fullName) {
       return res.status(400).json({
-        status: 'Error',
-        message: 'Full name is required to search for a mentor.'
+        status: "Error",
+        message: "Full name is required to search for a mentor.",
       });
     }
 
@@ -380,46 +404,47 @@ const searchMentor = async (req, res) => {
     const mentees = await Mentee.findAll({
       where: {
         fullName: {
-          [Op.like]: `%${fullName}%`
+          [Op.like]: `%${fullName}%`,
         },
-        role: 'MENTOR'  // Ensure we are only getting mentors
+        role: "MENTOR", // Ensure we are only getting mentors
       },
-      include: [{
-        model: Mentor,
-        required: true
-      }]
+      include: [
+        {
+          model: Mentor,
+          required: true,
+        },
+      ],
     });
 
     // Debugging: log the mentees found
-    console.log('Mentees found:', mentees);
+    console.log("Mentees found:", mentees);
 
     if (mentees.length === 0) {
       return res.status(404).json({
-        status: 'Error',
-        message: 'No mentors found with the given mentee name.'
+        status: "Error",
+        message: "No mentors found with the given mentee name.",
       });
     }
 
-    const mentors = mentees.map(mentee => ({
+    const mentors = mentees.map((mentee) => ({
       mentorId: mentee.mentors[0].id,
       menteeId: mentee.id,
-      fullName: mentee.fullName,//
+      fullName: mentee.fullName, //
       // email: mentee.email,
-      about: mentee.about,//
-      job: mentee.mentors[0].job,//
+      about: mentee.about, //
+      job: mentee.mentors[0].job, //
       // lokasi: mentee.mentors[0].lokasi,
-      rating: mentee.mentors[0].rating,//
+      rating: mentee.mentors[0].rating, //
     }));
 
     res.status(200).json({
-      status: 'Success',
-      mentors
+      status: "Success",
+      mentors,
     });
-
   } catch (error) {
     res.status(500).json({
-      status: 'Error',
-      message: error.message
+      status: "Error",
+      message: error.message,
     });
   }
 };
@@ -431,9 +456,8 @@ module.exports = {
   editUserAccount,
   beMentor,
   searchMentor,
-  addExperience
+  addExperience,
 };
-
 
 /*
 const router = createBrowserRouter([
