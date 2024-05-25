@@ -1,11 +1,7 @@
-
-// MASIH GAK BISA REGISTER (GAKBISA CONNECT KE BE)
-
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Fragments/Navbar";
 import InputLogin from "../components/Elements/Input/inputLogin";
 import DarkBlueButton from "../components/Elements/Button/darkBlueButton";
-import { register } from "../service/register.service";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -26,33 +22,30 @@ const RegisterUser = () => {
       password: event.target.password.value,
     };
 
-    register(data, async (success, res) => {
-      try {
-        if (success) {
-          if (res.data.errors) {
-            const { fullName, email, password } = res.data.errors;
-            console.log(email);
-            console.log(fullName);
-            console.log(password);
-            if (email) {
-              generateError(email);
-            } else if (password) {
-              generateError(password);
-            }
-          } else {
-            navigate("/");
-          }
+    try {
+      const response = await fetch("http://localhost:8080/users/registerUser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        navigate("/");
+      } else {
+        if (result.errors) {
+          Object.values(result.errors).forEach((error) => {
+            generateError(error);
+          });
         } else {
-          generateError(res.response.data.message);
+          generateError(result.message);
         }
-      } catch (error) {
-        const { email, password, fullName } = res.response.data.errors;
-        const errorMessage = [email, password, fullName]
-          .filter(Boolean)
-          .join(", errorrr");
-        generateError(errorMessage);
       }
-    });
+    } catch (error) {
+      generateError("An error occurred while registering.");
+    }
   };
 
   return (
@@ -78,25 +71,13 @@ const RegisterUser = () => {
               <InputLogin name="email" type="email" placeholder="Email" />
             </div>
             <div className="mt-[25px]">
-              <InputLogin
-                name="fullname"
-                type="text"
-                placeholder="Nama Lengkap"
-              />
+              <InputLogin name="fullname" type="text" placeholder="Nama Lengkap" />
             </div>
             <div className="mt-[25px]">
-              <InputLogin
-                name="password"
-                type="password"
-                placeholder="Password"
-              />
+              <InputLogin name="password" type="password" placeholder="Password" />
             </div>
             <div className="mt-[25px]">
-              <InputLogin
-                name="confirmPassword"
-                type="password"
-                placeholder="Confirm Password"
-              />
+              <InputLogin name="confirmPassword" type="password" placeholder="Confirm Password" />
             </div>
             <div className="w-[350px] ml-2 mt-[30px]">
               <DarkBlueButton
@@ -113,25 +94,13 @@ const RegisterUser = () => {
             </p>
             <section className="flex justify-center items-center">
               <figure className="bg-gray-200 w-[60px] h-[40px] mx-[10px] rounded flex justify-center items-center">
-                <img
-                  src="/images/logo_google.png"
-                  alt="google"
-                  className="w-[25px] h-[25px]"
-                />
+                <img src="/images/logo_google.png" alt="google" className="w-[25px] h-[25px]" />
               </figure>
               <figure className="bg-gray-200 w-[60px] h-[40px] mx-[10px] rounded flex justify-center items-center">
-                <img
-                  src="/images/logo_fb.png"
-                  alt="facebook"
-                  className="w-[25px] h-[25px]"
-                />
+                <img src="/images/logo_fb.png" alt="facebook" className="w-[25px] h-[25px]" />
               </figure>
               <figure className="bg-gray-200 w-[60px] h-[40px] mx-[10px] rounded flex justify-center items-center">
-                <img
-                  src="/images/logo_apple.png"
-                  alt="apple"
-                  className="w-[25px] h-[25px]"
-                />
+                <img src="/images/logo_apple.png" alt="apple" className="w-[25px] h-[25px]" />
               </figure>
             </section>
           </div>
